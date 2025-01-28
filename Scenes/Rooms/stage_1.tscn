@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8l3fwfb4yrxv"]
+
+[ext_resource type="PackedScene" uid="uid://bimclf76scsy7" path="res://Scenes/Players/goofy.tscn" id="1_suvoh"]
+
+[node name="Stage_1" type="Node2D"]
+
+[node name="Goofy" parent="." instance=ExtResource("1_suvoh")]
