@@ -12,4 +12,4 @@
 position = Vector2(482, 436)
 
 [node name="RocaGuia" parent="." instance=ExtResource("2_24rgm")]
-position = Vector2(813, 447)
+position = Vector2(811, 447)
