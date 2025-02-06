@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bimclf76scsy7"]
+[gd_scene load_steps=87 format=3 uid="uid://bimclf76scsy7"]
 
 [ext_resource type="Texture2D" uid="uid://0vbhm7s72iou" path="res://assets/players/Goofy/Goofy_Hands/Goofy_Hands_Up_Up.png" id="1_bubex"]
 [ext_resource type="Texture2D" uid="uid://bs2j58nv5naq5" path="res://assets/players/Goofy/Goofy_Stop/Goofy_stop.png" id="1_k4jc3"]
@@ -799,50 +799,244 @@ _data = {
 "RESET": SubResource("Animation_g6sa7")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tn8ox"]
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_t8eoa"]
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_n5wkm"]
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_8kwy0"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hs2bg"]
 animation = &"Goofy_Stop"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_on233"]
-animation = &"Goofy_Stop_Left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p1f4h"]
-animation = &"Goofy_Stop_Right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qemso"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ois5e"]
 animation = &"Goofy_Stop_Up"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6spv5"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ph12l"]
+animation = &"Goofy_Stop_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qrobp"]
+animation = &"Goofy_Stop_Right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ux0vv"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_hs2bg")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_ois5e")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_ph12l")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_qrobp")
+blend_point_3/pos = Vector2(1, 0)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mifw7"]
+animation = &"Goofy_Hands_Up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yeidw"]
+animation = &"Goofy_Hands_Up_Up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j7oy7"]
+animation = &"Goofy_Hands_Up_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2mq5c"]
+animation = &"Goofy_Hands_Up_Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_507e5"]
+animation = &"Goofy_Hands_Up_Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k7b2a"]
+animation = &"Goofy_Hands_Up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qfjnf"]
+animation = &"Goofy_Hands_Up_Up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ntu48"]
+animation = &"Goofy_Hands_Up_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jvlha"]
+animation = &"Goofy_Hands_Up_Right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_rewfq"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_mifw7")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_yeidw")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_j7oy7")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_2mq5c")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_507e5")
+blend_point_4/pos = Vector2(1, 0)
+blend_point_5/node = SubResource("AnimationNodeAnimation_k7b2a")
+blend_point_5/pos = Vector2(0, 1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_qfjnf")
+blend_point_6/pos = Vector2(0, -1)
+blend_point_7/node = SubResource("AnimationNodeAnimation_ntu48")
+blend_point_7/pos = Vector2(-1, 0)
+blend_point_8/node = SubResource("AnimationNodeAnimation_jvlha")
+blend_point_8/pos = Vector2(1, 0)
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_1c1s6"]
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ld7on"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_36me0"]
 animation = &"Goofy_Walk_Down"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_67thl"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_msajj"]
+animation = &"Goofy_Walk_Up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lcrpc"]
 animation = &"Goofy_Walk_Left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aqwci"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u6yfg"]
 animation = &"Goofy_Walk_Right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4iguv"]
-animation = &"Goofy_Walk_Up"
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_uu4f1"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_36me0")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_msajj")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_lcrpc")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_u6yfg")
+blend_point_3/pos = Vector2(1, 0)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3hkoi"]
+animation = &"Goofy_Hands_Up_Walk_Down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_euykn"]
+animation = &"Goofy_Hands_Up_Walk_Up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_55fls"]
+animation = &"Goofy_Hands_Up_Walk_Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6mvr5"]
+animation = &"Goofy_Hands_Up_Walk_Left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ji6yp"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_3hkoi")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_euykn")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_55fls")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_6mvr5")
+blend_point_3/pos = Vector2(-1, 0)
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yh24a"]
+advance_mode = 2
+advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yrv5k"]
+advance_mode = 2
+advance_condition = &"stopping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_um5bl"]
+advance_mode = 2
+advance_condition = &"stoppingHandsUp"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6cy4u"]
+advance_mode = 2
+advance_condition = &"stopping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ryed"]
+advance_mode = 2
+advance_condition = &"walkingHandsUp"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ut07u"]
+advance_mode = 2
+advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pfby4"]
+advance_mode = 2
+advance_condition = &"stoppingHandsUp"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3fh8r"]
+advance_mode = 2
+advance_condition = &"walkingHandsUp"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4bk0j"]
+advance_mode = 2
+advance_condition = &"kicking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4n7uq"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tucg0"]
+advance_mode = 2
+advance_condition = &"kicking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w6xvc"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5tnd5"]
+advance_mode = 2
+advance_condition = &"usingHook"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_owgrh"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cy5b3"]
+advance_mode = 2
+advance_condition = &"usingHook"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o67uf"]
+advance_mode = 2
+advance_condition = &"throwing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xd3uq"]
+advance_mode = 2
+advance_condition = &"throwing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5tsk7"]
+advance_mode = 2
+advance_condition = &"pickingItem"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e4gut"]
+advance_mode = 2
+advance_condition = &"pickingObject"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i8qp7"]
+advance_mode = 2
+advance_condition = &"pickingObject"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rv4d7"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_clidp"]
+advance_mode = 2
+advance_condition = &"pickingItem"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cvce2"]
+switch_mode = 2
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v7vb5"]
 states/End/position = Vector2(710.4, 109.664)
-states/Goofy_Stop/node = SubResource("AnimationNodeAnimation_tn8ox")
-states/Goofy_Stop/position = Vector2(77.8453, 211.923)
-states/Goofy_Stop_Left/node = SubResource("AnimationNodeAnimation_on233")
-states/Goofy_Stop_Left/position = Vector2(-105.304, 323.6)
-states/Goofy_Stop_Right/node = SubResource("AnimationNodeAnimation_p1f4h")
-states/Goofy_Stop_Right/position = Vector2(132.681, 305.2)
-states/Goofy_Stop_Up/node = SubResource("AnimationNodeAnimation_qemso")
-states/Goofy_Stop_Up/position = Vector2(112.681, 386.8)
-states/Goofy_Walk_Down/node = SubResource("AnimationNodeAnimation_6spv5")
-states/Goofy_Walk_Down/position = Vector2(360.245, 61.16)
-states/Goofy_Walk_Left/node = SubResource("AnimationNodeAnimation_67thl")
-states/Goofy_Walk_Left/position = Vector2(362.389, 125)
-states/Goofy_Walk_Right/node = SubResource("AnimationNodeAnimation_aqwci")
-states/Goofy_Walk_Right/position = Vector2(359.753, 201)
-states/Goofy_Walk_Up/node = SubResource("AnimationNodeAnimation_4iguv")
-states/Goofy_Walk_Up/position = Vector2(353.845, 274.6)
-states/Start/position = Vector2(-105.6, 211.411)
-graph_offset = Vector2(-256.519, 90)
+states/Start/position = Vector2(-348.8, 149.613)
+states/kicking/node = SubResource("AnimationNodeBlendSpace2D_t8eoa")
+states/kicking/position = Vector2(388.598, 349.548)
+states/picking_item/node = SubResource("AnimationNodeBlendSpace2D_n5wkm")
+states/picking_item/position = Vector2(402.571, 429.506)
+states/picking_object/node = SubResource("AnimationNodeBlendSpace2D_8kwy0")
+states/picking_object/position = Vector2(434.354, 543.106)
+states/stop/node = SubResource("AnimationNodeBlendSpace2D_ux0vv")
+states/stop/position = Vector2(-183.711, 162.657)
+states/stop_hands_up/node = SubResource("AnimationNodeBlendSpace2D_rewfq")
+states/stop_hands_up/position = Vector2(-40.6982, 542.139)
+states/throwing/node = SubResource("AnimationNodeBlendSpace2D_1c1s6")
+states/throwing/position = Vector2(-171.026, 663.106)
+states/using_hook/node = SubResource("AnimationNodeBlendSpace2D_ld7on")
+states/using_hook/position = Vector2(362.404, 265.506)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_uu4f1")
+states/walk/position = Vector2(654.115, 168.255)
+states/walk_hands_up/node = SubResource("AnimationNodeBlendSpace2D_ji6yp")
+states/walk_hands_up/position = Vector2(653.431, 669.214)
+transitions = ["stop", "walk", SubResource("AnimationNodeStateMachineTransition_yh24a"), "walk", "stop", SubResource("AnimationNodeStateMachineTransition_yrv5k"), "stop", "stop_hands_up", SubResource("AnimationNodeStateMachineTransition_um5bl"), "stop_hands_up", "stop", SubResource("AnimationNodeStateMachineTransition_6cy4u"), "walk", "walk_hands_up", SubResource("AnimationNodeStateMachineTransition_4ryed"), "walk_hands_up", "walk", SubResource("AnimationNodeStateMachineTransition_ut07u"), "walk_hands_up", "stop_hands_up", SubResource("AnimationNodeStateMachineTransition_pfby4"), "stop_hands_up", "walk_hands_up", SubResource("AnimationNodeStateMachineTransition_3fh8r"), "stop", "kicking", SubResource("AnimationNodeStateMachineTransition_4bk0j"), "kicking", "stop", SubResource("AnimationNodeStateMachineTransition_4n7uq"), "walk", "kicking", SubResource("AnimationNodeStateMachineTransition_tucg0"), "throwing", "stop", SubResource("AnimationNodeStateMachineTransition_w6xvc"), "stop", "using_hook", SubResource("AnimationNodeStateMachineTransition_5tnd5"), "using_hook", "stop", SubResource("AnimationNodeStateMachineTransition_owgrh"), "walk", "using_hook", SubResource("AnimationNodeStateMachineTransition_cy5b3"), "walk_hands_up", "throwing", SubResource("AnimationNodeStateMachineTransition_o67uf"), "stop_hands_up", "throwing", SubResource("AnimationNodeStateMachineTransition_xd3uq"), "walk", "picking_item", SubResource("AnimationNodeStateMachineTransition_5tsk7"), "stop", "picking_object", SubResource("AnimationNodeStateMachineTransition_e4gut"), "walk", "picking_object", SubResource("AnimationNodeStateMachineTransition_i8qp7"), "picking_object", "stop_hands_up", SubResource("AnimationNodeStateMachineTransition_rv4d7"), "stop", "picking_item", SubResource("AnimationNodeStateMachineTransition_clidp"), "picking_item", "stop", SubResource("AnimationNodeStateMachineTransition_cvce2")]
+graph_offset = Vector2(-218.672, 51.4804)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1338f"]
 radius = 15.0333
@@ -852,7 +1046,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_s63fl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_k4jc3")
+texture = ExtResource("10_6sehr")
 flip_h = true
 hframes = 2
 
@@ -862,8 +1056,29 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n1k1e")
+}
 tree_root = SubResource("AnimationNodeStateMachine_v7vb5")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/kicking = false
+parameters/conditions/pickingItem = false
+parameters/conditions/pickingObject = false
+parameters/conditions/stopping = false
+parameters/conditions/stoppingHandsUp = false
+parameters/conditions/throwing = false
+parameters/conditions/usingHook = false
+parameters/conditions/walking = false
+parameters/conditions/walkingHandsUp = false
+parameters/kicking/blend_position = Vector2(0, 0)
+parameters/picking_item/blend_position = Vector2(0, 0)
+parameters/picking_object/blend_position = Vector2(0, 0)
+parameters/stop/blend_position = Vector2(0.0835629, -0.0719794)
+parameters/stop_hands_up/blend_position = Vector2(0.996327, -0.0025773)
+parameters/throwing/blend_position = Vector2(0, 0)
+parameters/using_hook/blend_position = Vector2(0, 0)
+parameters/walk/blend_position = Vector2(-0.111111, -0.74036)
+parameters/walk_hands_up/blend_position = Vector2(0, 0)
 
 [node name="ActionableMarker" type="Marker2D" parent="."]
 
