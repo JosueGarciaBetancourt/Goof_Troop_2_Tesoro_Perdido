@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://2ktdmptnvcxt"]
-
-[ext_resource type="Texture2D" uid="uid://c4kk2y8clcmp7" path="res://assets/players/Guia/RocaGuia.png" id="1_d3lhy"]
-
-[node name="RocaGuia" type="CharacterBody2D"]
-scale = Vector2(2, 2)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_d3lhy")

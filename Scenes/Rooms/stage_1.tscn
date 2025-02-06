@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8l3fwfb4yrxv"]
 
 [ext_resource type="PackedScene" uid="uid://bhvpx244t3dfo" path="res://Scenes/TileMap/tmStage1.tscn" id="1_sct7h"]
-[ext_resource type="PackedScene" uid="uid://bimclf76scsy7" path="res://Scenes/Players/goofy.tscn" id="1_suvoh"]
-[ext_resource type="PackedScene" uid="uid://2ktdmptnvcxt" path="res://Scenes/Players/RocaGuia.tscn" id="2_24rgm"]
+[ext_resource type="PackedScene" uid="uid://bimclf76scsy7" path="res://Scenes/Players/goofycontrol.tscn" id="1_suvoh"]
+[ext_resource type="PackedScene" uid="uid://2ktdmptnvcxt" path="res://Scenes/Players/Taka.tscn" id="2_24rgm"]
 
 [node name="Stage_1" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_sct7h")]
 
+[node name="RocaGuia" parent="." instance=ExtResource("2_24rgm")]
+position = Vector2(662, 455)
+
 [node name="Goofy" parent="." instance=ExtResource("1_suvoh")]
 position = Vector2(482, 436)
-
-[node name="RocaGuia" parent="." instance=ExtResource("2_24rgm")]
-position = Vector2(811, 447)

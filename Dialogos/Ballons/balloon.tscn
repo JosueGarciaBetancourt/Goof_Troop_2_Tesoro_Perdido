@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://27odh5fbh4ae"]
+[gd_scene load_steps=10 format=3 uid="uid://27odh5fbh4ae"]
 
 [ext_resource type="Script" path="res://Dialogos/Ballons/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Texture2D" uid="uid://cnt2fyd6mfgq2" path="res://Dialogos/Ballons/DialoguePanel.png" id="2_g34uh"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_72ixx"]
+[ext_resource type="Shader" path="res://Dialogos/Shaders/portrait_shader.gdshader" id="3_n1nbg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rbk5d"]
 texture = ExtResource("2_g34uh")
@@ -11,6 +12,14 @@ texture = ExtResource("2_g34uh")
 [sub_resource type="Theme" id="Theme_k60hw"]
 default_font_size = 30
 Panel/styles/panel = SubResource("StyleBoxTexture_rbk5d")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymj78"]
+shader = ExtResource("3_n1nbg")
+shader_parameter/darkness = 0.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fs5g8"]
+shader = ExtResource("3_n1nbg")
+shader_parameter/darkness = 0.6
 
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
@@ -25,6 +34,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_k60hw")
+
+[node name="PortraitLeft" type="TextureRect" parent="Balloon"]
+material = SubResource("ShaderMaterial_ymj78")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 1.0
+anchor_right = 0.024
+anchor_bottom = 1.0
+offset_left = 0.919998
+offset_top = -40.0
+offset_right = 40.92
+grow_vertical = 0
+
+[node name="PortraitRight" type="TextureRect" parent="Balloon"]
+material = SubResource("ShaderMaterial_fs5g8")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.798
+anchor_top = 1.0
+anchor_right = 0.798
+anchor_bottom = 1.0
+offset_left = 0.839966
+offset_top = -40.0
+offset_right = 40.84
+grow_vertical = 0
 
 [node name="Panel" type="Panel" parent="Balloon"]
 clip_children = 2

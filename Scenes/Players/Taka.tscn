@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://2ktdmptnvcxt"]
+
+[ext_resource type="Script" path="res://Scripts/Players/Taka.gd" id="1_8g2l0"]
+[ext_resource type="Texture2D" uid="uid://c4kk2y8clcmp7" path="res://assets/players/Guia/RocaGuia.png" id="1_d3lhy"]
+[ext_resource type="PackedScene" uid="uid://d0fhhty4mvys1" path="res://Scenes/Importants/action_area.tscn" id="2_qoe2j"]
+[ext_resource type="PackedScene" uid="uid://dupbf3hmlye0e" path="res://Scenes/Importants/press_f_ballon.tscn" id="4_6yf6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62wmt"]
+size = Vector2(32.75, 17)
+
+[node name="Taka" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_8g2l0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d3lhy")
+
+[node name="ActionArea" parent="." instance=ExtResource("2_qoe2j")]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionArea"]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_62wmt")
+debug_color = Color(0.785765, 0.394229, 0.478892, 0.42)
+
+[node name="PressFBallon" parent="." instance=ExtResource("4_6yf6g")]
+visible = false
+position = Vector2(0, -37)
+scale = Vector2(0.122717, 0.122717)

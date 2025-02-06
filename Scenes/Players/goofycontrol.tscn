@@ -1,7 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://bimclf76scsy7"]
+[gd_scene load_steps=42 format=3 uid="uid://bimclf76scsy7"]
 
 [ext_resource type="Texture2D" uid="uid://0vbhm7s72iou" path="res://assets/players/Goofy/Goofy_Hands/Goofy_Hands_Up_Up.png" id="1_bubex"]
 [ext_resource type="Texture2D" uid="uid://bs2j58nv5naq5" path="res://assets/players/Goofy/Goofy_Stop/Goofy_stop.png" id="1_k4jc3"]
+[ext_resource type="Script" path="res://Scripts/Players/GoofyController.gd" id="1_s63fl"]
 [ext_resource type="Texture2D" uid="uid://bw1mi0onujeb2" path="res://assets/players/Goofy/Goofy_Walk/Goofy_Walk_Down.png" id="3_2wtbo"]
 [ext_resource type="Texture2D" uid="uid://2nxywf504smq" path="res://assets/players/Goofy/Goofy_Walk/Goofy_Walk_Right.png" id="4_41fo3"]
 [ext_resource type="Texture2D" uid="uid://5hhs44ekulol" path="res://assets/players/Goofy/Goofy_Walk/Goofy_Walk_Up.png" id="5_grnev"]
@@ -12,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://ii3h8awa38t1" path="res://assets/players/Goofy/Goofy_Stop/Goofy_stop_Right.png" id="10_6sehr"]
 [ext_resource type="Texture2D" uid="uid://xqcp1rmbnk8" path="res://assets/players/Goofy/Goofy_Stop/Goofy_stop_up.png" id="11_qkdnl"]
 [ext_resource type="Texture2D" uid="uid://srgyecn880uq" path="res://assets/players/Goofy/Goofy_Hands/Goofy_Hands_Up_Right.png" id="12_ad6y2"]
-[ext_resource type="Script" path="res://Scenes/Players/GoofyControl.gd" id="13_n04d2"]
 
 [sub_resource type="Animation" id="Animation_asirq"]
 resource_name = "Goofy_Hands_Up"
@@ -844,8 +844,12 @@ states/Goofy_Walk_Up/position = Vector2(353.845, 274.6)
 states/Start/position = Vector2(-105.6, 211.411)
 graph_offset = Vector2(-256.519, 90)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1338f"]
+radius = 15.0333
+
 [node name="Goofy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
+script = ExtResource("1_s63fl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_k4jc3")
@@ -858,11 +862,15 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_n1k1e")
-}
 tree_root = SubResource("AnimationNodeStateMachine_v7vb5")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="GoofyControl" type="Node2D" parent="."]
-script = ExtResource("13_n04d2")
+[node name="ActionableMarker" type="Marker2D" parent="."]
+
+[node name="ActionableArea2D" type="Area2D" parent="ActionableMarker"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionableMarker/ActionableArea2D"]
+position = Vector2(0, 21)
+shape = SubResource("CircleShape2D_1338f")
