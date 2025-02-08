@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://bimclf76scsy7"]
+[gd_scene load_steps=88 format=3 uid="uid://bimclf76scsy7"]
 
 [ext_resource type="Texture2D" uid="uid://0vbhm7s72iou" path="res://assets/players/Goofy/Goofy_Hands/Goofy_Hands_Up_Up.png" id="1_bubex"]
 [ext_resource type="Texture2D" uid="uid://bs2j58nv5naq5" path="res://assets/players/Goofy/Goofy_Stop/Goofy_stop.png" id="1_k4jc3"]
@@ -16,6 +16,7 @@
 
 [sub_resource type="Animation" id="Animation_asirq"]
 resource_name = "Goofy_Hands_Up"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -55,6 +56,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_kg4v8"]
 resource_name = "Goofy_Hands_Up_Left"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -106,6 +108,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_e13ls"]
 resource_name = "Goofy_Hands_Up_Right"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -157,6 +160,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_ddhtn"]
 resource_name = "Goofy_Hands_Up_Up"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -197,6 +201,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_h5seu"]
 resource_name = "Goofy_Hands_Up_Walk_Down"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -237,6 +242,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_nxwdu"]
 resource_name = "Goofy_Hands_Up_Walk_Left"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -289,6 +295,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_34tck"]
 resource_name = "Goofy_Hands_Up_Walk_Right"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -423,6 +430,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_hjpsa"]
 resource_name = "Goofy_Stop_Left"
 length = 2.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -475,6 +483,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_cb1nb"]
 resource_name = "Goofy_Stop_Right"
 length = 2.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -526,6 +535,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_vhnom"]
 resource_name = "Goofy_Stop_Up"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -826,6 +836,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_ph12l")
 blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_qrobp")
 blend_point_3/pos = Vector2(1, 0)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mifw7"]
 animation = &"Goofy_Hands_Up"
@@ -873,6 +884,7 @@ blend_point_7/node = SubResource("AnimationNodeAnimation_ntu48")
 blend_point_7/pos = Vector2(-1, 0)
 blend_point_8/node = SubResource("AnimationNodeAnimation_jvlha")
 blend_point_8/pos = Vector2(1, 0)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_1c1s6"]
 
@@ -899,6 +911,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_lcrpc")
 blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_u6yfg")
 blend_point_3/pos = Vector2(1, 0)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3hkoi"]
 animation = &"Goofy_Hands_Up_Walk_Down"
@@ -921,6 +934,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_55fls")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_6mvr5")
 blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yh24a"]
 advance_mode = 2
@@ -937,14 +951,6 @@ advance_condition = &"stoppingHandsUp"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6cy4u"]
 advance_mode = 2
 advance_condition = &"stopping"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ryed"]
-advance_mode = 2
-advance_condition = &"walkingHandsUp"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ut07u"]
-advance_mode = 2
-advance_condition = &"walking"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pfby4"]
 advance_mode = 2
@@ -1014,9 +1020,20 @@ advance_condition = &"pickingItem"
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gv8bt"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ryed"]
+advance_mode = 2
+advance_condition = &"walkingHandsUp"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ut07u"]
+advance_mode = 2
+advance_condition = &"walking"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v7vb5"]
 states/End/position = Vector2(710.4, 109.664)
-states/Start/position = Vector2(-348.8, 149.613)
+states/Start/position = Vector2(-356, 165.362)
 states/kicking/node = SubResource("AnimationNodeBlendSpace2D_t8eoa")
 states/kicking/position = Vector2(388.598, 349.548)
 states/picking_item/node = SubResource("AnimationNodeBlendSpace2D_n5wkm")
@@ -1035,8 +1052,8 @@ states/walk/node = SubResource("AnimationNodeBlendSpace2D_uu4f1")
 states/walk/position = Vector2(654.115, 168.255)
 states/walk_hands_up/node = SubResource("AnimationNodeBlendSpace2D_ji6yp")
 states/walk_hands_up/position = Vector2(653.431, 669.214)
-transitions = ["stop", "walk", SubResource("AnimationNodeStateMachineTransition_yh24a"), "walk", "stop", SubResource("AnimationNodeStateMachineTransition_yrv5k"), "stop", "stop_hands_up", SubResource("AnimationNodeStateMachineTransition_um5bl"), "stop_hands_up", "stop", SubResource("AnimationNodeStateMachineTransition_6cy4u"), "walk", "walk_hands_up", SubResource("AnimationNodeStateMachineTransition_4ryed"), "walk_hands_up", "walk", SubResource("AnimationNodeStateMachineTransition_ut07u"), "walk_hands_up", "stop_hands_up", SubResource("AnimationNodeStateMachineTransition_pfby4"), "stop_hands_up", "walk_hands_up", SubResource("AnimationNodeStateMachineTransition_3fh8r"), "stop", "kicking", SubResource("AnimationNodeStateMachineTransition_4bk0j"), "kicking", "stop", SubResource("AnimationNodeStateMachineTransition_4n7uq"), "walk", "kicking", SubResource("AnimationNodeStateMachineTransition_tucg0"), "throwing", "stop", SubResource("AnimationNodeStateMachineTransition_w6xvc"), "stop", "using_hook", SubResource("AnimationNodeStateMachineTransition_5tnd5"), "using_hook", "stop", SubResource("AnimationNodeStateMachineTransition_owgrh"), "walk", "using_hook", SubResource("AnimationNodeStateMachineTransition_cy5b3"), "walk_hands_up", "throwing", SubResource("AnimationNodeStateMachineTransition_o67uf"), "stop_hands_up", "throwing", SubResource("AnimationNodeStateMachineTransition_xd3uq"), "walk", "picking_item", SubResource("AnimationNodeStateMachineTransition_5tsk7"), "stop", "picking_object", SubResource("AnimationNodeStateMachineTransition_e4gut"), "walk", "picking_object", SubResource("AnimationNodeStateMachineTransition_i8qp7"), "picking_object", "stop_hands_up", SubResource("AnimationNodeStateMachineTransition_rv4d7"), "stop", "picking_item", SubResource("AnimationNodeStateMachineTransition_clidp"), "picking_item", "stop", SubResource("AnimationNodeStateMachineTransition_cvce2")]
-graph_offset = Vector2(-218.672, 51.4804)
+transitions = ["stop", "walk", SubResource("AnimationNodeStateMachineTransition_yh24a"), "walk", "stop", SubResource("AnimationNodeStateMachineTransition_yrv5k"), "stop", "stop_hands_up", SubResource("AnimationNodeStateMachineTransition_um5bl"), "stop_hands_up", "stop", SubResource("AnimationNodeStateMachineTransition_6cy4u"), "walk_hands_up", "stop_hands_up", SubResource("AnimationNodeStateMachineTransition_pfby4"), "stop_hands_up", "walk_hands_up", SubResource("AnimationNodeStateMachineTransition_3fh8r"), "stop", "kicking", SubResource("AnimationNodeStateMachineTransition_4bk0j"), "kicking", "stop", SubResource("AnimationNodeStateMachineTransition_4n7uq"), "walk", "kicking", SubResource("AnimationNodeStateMachineTransition_tucg0"), "throwing", "stop", SubResource("AnimationNodeStateMachineTransition_w6xvc"), "stop", "using_hook", SubResource("AnimationNodeStateMachineTransition_5tnd5"), "using_hook", "stop", SubResource("AnimationNodeStateMachineTransition_owgrh"), "walk", "using_hook", SubResource("AnimationNodeStateMachineTransition_cy5b3"), "walk_hands_up", "throwing", SubResource("AnimationNodeStateMachineTransition_o67uf"), "stop_hands_up", "throwing", SubResource("AnimationNodeStateMachineTransition_xd3uq"), "walk", "picking_item", SubResource("AnimationNodeStateMachineTransition_5tsk7"), "stop", "picking_object", SubResource("AnimationNodeStateMachineTransition_e4gut"), "walk", "picking_object", SubResource("AnimationNodeStateMachineTransition_i8qp7"), "picking_object", "stop_hands_up", SubResource("AnimationNodeStateMachineTransition_rv4d7"), "stop", "picking_item", SubResource("AnimationNodeStateMachineTransition_clidp"), "picking_item", "stop", SubResource("AnimationNodeStateMachineTransition_cvce2"), "Start", "stop", SubResource("AnimationNodeStateMachineTransition_gv8bt"), "walk", "walk_hands_up", SubResource("AnimationNodeStateMachineTransition_4ryed"), "walk_hands_up", "walk", SubResource("AnimationNodeStateMachineTransition_ut07u")]
+graph_offset = Vector2(-233.655, 130.428)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1338f"]
 radius = 15.0333
@@ -1044,6 +1061,11 @@ radius = 15.0333
 [node name="Goofy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_s63fl")
+movement_speed = null
+move_left = null
+move_right = null
+move_up = null
+move_down = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("10_6sehr")
@@ -1064,7 +1086,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/kicking = false
 parameters/conditions/pickingItem = false
 parameters/conditions/pickingObject = false
-parameters/conditions/stopping = false
+parameters/conditions/stopping = true
 parameters/conditions/stoppingHandsUp = false
 parameters/conditions/throwing = false
 parameters/conditions/usingHook = false
@@ -1077,7 +1099,7 @@ parameters/stop/blend_position = Vector2(0.0835629, -0.0719794)
 parameters/stop_hands_up/blend_position = Vector2(0.996327, -0.0025773)
 parameters/throwing/blend_position = Vector2(0, 0)
 parameters/using_hook/blend_position = Vector2(0, 0)
-parameters/walk/blend_position = Vector2(-0.111111, -0.74036)
+parameters/walk/blend_position = Vector2(1, 0)
 parameters/walk_hands_up/blend_position = Vector2(0, 0)
 
 [node name="ActionableMarker" type="Marker2D" parent="."]

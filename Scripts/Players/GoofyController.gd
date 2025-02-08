@@ -1,26 +1,61 @@
-#region Movimiento general del player
+
 extends PlayerController
 
-func _ready():
-	movement_speed = 400.0  # Modificamos la velocidad
-	move_left = "ui_left2"  # Modificando las direcciones de movimiento
-	move_right = "ui_right2"
-	move_up = "ui_up2"
-	move_down = "ui_down2"
-	
-func _physics_process(_delta: float) -> void:
-	handle_movement()
-	check_actionables()
-
-func get_movement_input() -> Vector2:
-	return Input.get_vector(move_left, move_right, move_up, move_down)
-#endregion
-
+@onready var animationTree = $AnimationTree
 @onready var ActionMarker = $ActionableMarker
 @onready var actionArea = $ActionableMarker/ActionableArea2D
 
+var moveDirection = Vector2.ZERO
 var nearestActionable: ActionArea
 var readyPressFBallon: ActionArea
+var handsUp = false
+
+func _ready():
+	animationTree.active =  true
+	movement_speed = 400.0 
+	move_left = "ui_left2"
+	move_right = "ui_right2"
+	move_up = "ui_up2"
+	move_down = "ui_down2"
+
+func get_movement_input() -> Vector2:
+	return Input.get_vector(move_left, move_right, move_up, move_down)
+
+func _physics_process(_delta: float) -> void:
+	animate_movement()
+	handle_movement()
+	check_actionables()
+
+func animate_movement():
+	# velocity y movement_direction están declaradas en la clase PlayerController
+	if Input.is_action_just_pressed("ui_mainInteract"):
+		handsUp = !handsUp
+
+	if (velocity.length() == 0):
+		if handsUp:
+			animationTree["parameters/conditions/stoppingHandsUp"] = true
+			animationTree["parameters/conditions/stopping"] = false
+		else:
+			animationTree["parameters/conditions/stopping"] = true
+			animationTree["parameters/conditions/stoppingHandsUp"] = false
+		
+		animationTree["parameters/conditions/walking"] = false
+		animationTree["parameters/conditions/walkingHandsUp"] = false
+	else:
+		if handsUp:
+			animationTree["parameters/conditions/walkingHandsUp"] = true
+			animationTree["parameters/conditions/walking"] = false
+		else:
+			animationTree["parameters/conditions/walking"] = true
+			animationTree["parameters/conditions/walkingHandsUp"] = false
+
+		animationTree["parameters/conditions/stopping"] = false
+		animationTree["parameters/conditions/stoppingHandsUp"] = false
+
+		animationTree["parameters/stop/blend_position"] = movement_direction
+		animationTree["parameters/stop_hands_up/blend_position"] = movement_direction
+		animationTree["parameters/walk/blend_position"] = movement_direction
+		animationTree["parameters/walk_hands_up/blend_position"] = movement_direction
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("ui_accept") && nearestActionable != null:

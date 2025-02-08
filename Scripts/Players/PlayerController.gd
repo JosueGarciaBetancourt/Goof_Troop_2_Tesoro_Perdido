@@ -20,3 +20,4 @@ func handle_movement() -> void:
 	movement_direction = get_movement_input()
 	velocity = movement_direction * movement_speed
 	move_and_slide()
+	
