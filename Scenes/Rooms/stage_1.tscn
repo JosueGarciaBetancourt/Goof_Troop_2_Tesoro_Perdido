@@ -17,3 +17,8 @@ script = ExtResource("3_370la")
 
 [node name="Goofy" parent="PlayerController" instance=ExtResource("1_suvoh")]
 position = Vector2(186, 220)
+movement_speed = null
+move_left = null
+move_right = null
+move_up = null
+move_down = null

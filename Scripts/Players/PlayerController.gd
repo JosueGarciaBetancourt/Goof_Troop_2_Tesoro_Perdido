@@ -8,6 +8,7 @@ class_name PlayerController
 @export var move_down: String = "ui_down"
 
 var movement_direction: Vector2 = Vector2.ZERO
+var movement_direction_normalized: Vector2 = Vector2.ZERO
 
 func _physics_process(_delta: float) -> void:
 	pass
@@ -17,7 +18,7 @@ func get_movement_input() -> Vector2:
 	return Vector2.ZERO  # Por defecto, no hace nada
 
 func handle_movement() -> void:
-	movement_direction = get_movement_input()
-	velocity = movement_direction * movement_speed
+	movement_direction_normalized = get_movement_input()
+	velocity = movement_direction_normalized * movement_speed
 	move_and_slide()
 	

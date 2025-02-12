@@ -1,14 +1,27 @@
-
 extends PlayerController
 
 @onready var animationTree = $AnimationTree
 @onready var ActionMarker = $ActionableMarker
 @onready var actionArea = $ActionableMarker/ActionableArea2D
 
-var moveDirection = Vector2.ZERO
 var nearestActionable: ActionArea
 var readyPressFBallon: ActionArea
 var handsUp = false
+var change_direction = false
+
+const VECTOR_DIRECTIONS = {
+	"RIGHT": Vector2(1, 0),
+	"LEFT": Vector2(-1, 0),
+	"UP": Vector2(0, -1),
+	"DOWN": Vector2(0, 1),
+	"RIGHT_DOWN": Vector2(1, 1),
+	"RIGHT_UP": Vector2(1, -1),
+	"LEFT_DOWN": Vector2(-1, 1),
+	"LEFT_UP": Vector2(-1, -1),
+}
+
+var aux_direction: Vector2
+var prev_direction: Vector2 = Vector2.ZERO  # Nueva variable para almacenar la dirección anterior
 
 func _ready():
 	animationTree.active =  true
@@ -19,7 +32,31 @@ func _ready():
 	move_down = "ui_down2"
 
 func get_movement_input() -> Vector2:
-	return Input.get_vector(move_left, move_right, move_up, move_down)
+	var input_vector = Vector2.ZERO
+
+	# Manejo de izquierda y derecha
+	var left_pressed = Input.is_action_pressed(move_left)
+	var right_pressed = Input.is_action_pressed(move_right)
+	var up_pressed = Input.is_action_pressed(move_up)
+	var down_pressed = Input.is_action_pressed(move_down)
+
+	if left_pressed and not right_pressed:
+		input_vector.x = -1
+	elif right_pressed and not left_pressed:
+		input_vector.x = 1
+	elif left_pressed and right_pressed: # Si ambos están presionados, prevalece izquierda (x = -1)
+		input_vector.x = -1
+
+	if up_pressed and not down_pressed:
+		input_vector.y = -1
+	elif down_pressed and not up_pressed:
+		input_vector.y = 1
+	elif up_pressed and down_pressed: # Si ambos están presionados, prevalece arriba (y = -1)
+		input_vector.y = -1
+
+	movement_direction = input_vector
+
+	return input_vector.normalized()  # Normalizamos para evitar movimientos más rápidos en diagonal
 
 func _physics_process(_delta: float) -> void:
 	animate_movement()
@@ -27,7 +64,7 @@ func _physics_process(_delta: float) -> void:
 	check_actionables()
 
 func animate_movement():
-	# velocity y movement_direction están declaradas en la clase PlayerController
+	# velocity, movement_direction y movement_direction_normalized están declaradas en la clase PlayerController
 	if Input.is_action_just_pressed("ui_mainInteract"):
 		handsUp = !handsUp
 
@@ -41,7 +78,19 @@ func animate_movement():
 		
 		animationTree["parameters/conditions/walking"] = false
 		animationTree["parameters/conditions/walkingHandsUp"] = false
+
+		change_direction = false
 	else:
+		# Detectar cambio de dirección de horizontal a diagonal/vertical
+		if prev_direction.y == 0 and movement_direction.x != 0 and movement_direction.y != 0:
+			change_direction = true
+
+		if movement_direction == VECTOR_DIRECTIONS["UP"] or movement_direction == VECTOR_DIRECTIONS["DOWN"] :
+			change_direction = false
+
+		# Guardar la dirección actual como anterior para la próxima verificación
+		prev_direction = movement_direction
+
 		if handsUp:
 			animationTree["parameters/conditions/walkingHandsUp"] = true
 			animationTree["parameters/conditions/walking"] = false
@@ -56,6 +105,10 @@ func animate_movement():
 		animationTree["parameters/stop_hands_up/blend_position"] = movement_direction
 		animationTree["parameters/walk/blend_position"] = movement_direction
 		animationTree["parameters/walk_hands_up/blend_position"] = movement_direction
+
+		if (change_direction):
+			animationTree["parameters/walk/blend_position"] = Vector2(movement_direction.x, 0)
+			animationTree["parameters/walk_hands_up/blend_position"] = Vector2(movement_direction.x, 0)
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("ui_accept") && nearestActionable != null:
