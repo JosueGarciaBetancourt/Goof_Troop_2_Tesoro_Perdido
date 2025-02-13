@@ -1,13 +1,83 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8l3fwfb4yrxv"]
+[gd_scene load_steps=37 format=3 uid="uid://c8l3fwfb4yrxv"]
 
 [ext_resource type="PackedScene" uid="uid://bhvpx244t3dfo" path="res://Scenes/TileMap/tmStage1.tscn" id="1_sct7h"]
 [ext_resource type="PackedScene" uid="uid://bimclf76scsy7" path="res://Scenes/Players/Goofy.tscn" id="1_suvoh"]
 [ext_resource type="PackedScene" uid="uid://2ktdmptnvcxt" path="res://Scenes/Players/Taka.tscn" id="2_24rgm"]
+[ext_resource type="PackedScene" uid="uid://cfbx326p25ld1" path="res://Scenes/TileMap/tmShip.tscn" id="2_pbsgv"]
 [ext_resource type="Script" path="res://Scripts/Players/PlayerController.gd" id="3_370la"]
+[ext_resource type="Script" path="res://Scripts/Effects/Storm.gd" id="6_rw67d"]
+[ext_resource type="Texture2D" uid="uid://d2tjxevxr1ggp" path="res://assets/effects/BlackBackground.png" id="7_vh7la"]
+[ext_resource type="Texture2D" uid="uid://1tqhglarucmp" path="res://assets/effects/rain/Rain (1).png" id="8_jo411"]
+[ext_resource type="Texture2D" uid="uid://cx7qemxrcxr1n" path="res://assets/effects/rain/Rain (2).png" id="9_143sn"]
+[ext_resource type="Texture2D" uid="uid://be30kkoa5kora" path="res://assets/effects/rain/Rain (3).png" id="10_soqu1"]
+[ext_resource type="Texture2D" uid="uid://mjwwwuwp1aro" path="res://assets/effects/rain/Rain (4).png" id="11_e230l"]
+[ext_resource type="Texture2D" uid="uid://byfve4f2qqf5s" path="res://assets/effects/rain/Rain (5).png" id="12_2lqa6"]
+[ext_resource type="Texture2D" uid="uid://kqwxda5bv8ul" path="res://assets/effects/rain/Rain (6).png" id="13_di3gt"]
+[ext_resource type="Texture2D" uid="uid://b3v4svuk33f67" path="res://assets/effects/rain/Rain (7).png" id="14_ej1jo"]
+[ext_resource type="Texture2D" uid="uid://bbbhf8mk6wbo" path="res://assets/effects/rain/Rain (8).png" id="15_habc1"]
+[ext_resource type="Texture2D" uid="uid://b7x46cuqighnf" path="res://assets/effects/rain/Rain (9).png" id="16_euw6p"]
+[ext_resource type="Texture2D" uid="uid://boodey5epfv6p" path="res://assets/effects/rain/Rain (10).png" id="17_gm1ph"]
+[ext_resource type="Texture2D" uid="uid://33omqdinwipj" path="res://assets/effects/rain/Rain (11).png" id="18_jqmik"]
+[ext_resource type="Texture2D" uid="uid://h0awxdenqs57" path="res://assets/effects/rain/Rain (12).png" id="19_1psvg"]
+[ext_resource type="Texture2D" uid="uid://qpguu585io6u" path="res://assets/effects/rain/Rain (13).png" id="20_eo7fe"]
+[ext_resource type="Texture2D" uid="uid://dd0o7cv567nqq" path="res://assets/effects/rain/Rain (14).png" id="21_xod0t"]
+[ext_resource type="Texture2D" uid="uid://cw1vygkrg4von" path="res://assets/effects/rain/Rain (15).png" id="22_1dsed"]
+[ext_resource type="Texture2D" uid="uid://c3pho33jgllsp" path="res://assets/effects/rain/Rain (16).png" id="23_ok51r"]
+[ext_resource type="Texture2D" uid="uid://cg4x5x0ls2lyi" path="res://assets/effects/rain/Rain (17).png" id="24_fich2"]
+[ext_resource type="Texture2D" uid="uid://u3jcuahn0xo" path="res://assets/effects/rain/Rain (18).png" id="25_vn8b8"]
+[ext_resource type="Texture2D" uid="uid://cu8k5eextd3n7" path="res://assets/effects/rain/Rain (19).png" id="26_ubiqw"]
+[ext_resource type="Texture2D" uid="uid://bhjmepwcaefnl" path="res://assets/effects/rain/Rain (20).png" id="27_d6cra"]
+[ext_resource type="Texture2D" uid="uid://entlnad4c1b1" path="res://assets/effects/rain/Rain (21).png" id="28_wks6m"]
+[ext_resource type="Texture2D" uid="uid://cj1t2l4kas6mj" path="res://assets/effects/rain/Rain (22).png" id="29_p2rt2"]
+[ext_resource type="Texture2D" uid="uid://bvlwoein8ep8m" path="res://assets/effects/rain/Rain (23).png" id="30_qqjpv"]
+[ext_resource type="Texture2D" uid="uid://bqy87l7oxapwk" path="res://assets/effects/rain/Rain (24).png" id="31_v23kb"]
+[ext_resource type="Texture2D" uid="uid://du1p7xuy4gfod" path="res://assets/effects/clouds/NubesTormentaIz.png" id="32_q1ecm"]
+[ext_resource type="Texture2D" uid="uid://cir0ysfmpfsv0" path="res://assets/effects/clouds/NubesTormentaDer.png" id="33_ux1mv"]
+
+[sub_resource type="Animation" id="Animation_e0wl5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lluvia:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_jo411")]
+}
+
+[sub_resource type="Animation" id="Animation_hiv78"]
+resource_name = "Rain"
+loop_mode = 1
+step = 0.042
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lluvia:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.042, 0.084, 0.126, 0.168, 0.21, 0.252, 0.294, 0.336, 0.378, 0.42, 0.462, 0.504, 0.546, 0.588, 0.63, 0.672, 0.714, 0.756, 0.798, 0.84, 0.882, 0.924, 0.966),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_jo411"), ExtResource("9_143sn"), ExtResource("10_soqu1"), ExtResource("11_e230l"), ExtResource("12_2lqa6"), ExtResource("13_di3gt"), ExtResource("14_ej1jo"), ExtResource("15_habc1"), ExtResource("16_euw6p"), ExtResource("17_gm1ph"), ExtResource("18_jqmik"), ExtResource("19_1psvg"), ExtResource("20_eo7fe"), ExtResource("21_xod0t"), ExtResource("22_1dsed"), ExtResource("23_ok51r"), ExtResource("24_fich2"), ExtResource("25_vn8b8"), ExtResource("26_ubiqw"), ExtResource("27_d6cra"), ExtResource("28_wks6m"), ExtResource("29_p2rt2"), ExtResource("30_qqjpv"), ExtResource("31_v23kb")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mlt6n"]
+_data = {
+"RESET": SubResource("Animation_e0wl5"),
+"Rain": SubResource("Animation_hiv78")
+}
 
 [node name="Stage_1" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_sct7h")]
+visible = false
+
+[node name="tmShip" parent="." instance=ExtResource("2_pbsgv")]
 
 [node name="RocaGuia" parent="." instance=ExtResource("2_24rgm")]
 position = Vector2(662, 455)
@@ -17,8 +87,31 @@ script = ExtResource("3_370la")
 
 [node name="Goofy" parent="PlayerController" instance=ExtResource("1_suvoh")]
 position = Vector2(186, 220)
-movement_speed = null
-move_left = null
-move_right = null
-move_up = null
-move_down = null
+
+[node name="Efectos" type="Node2D" parent="."]
+script = ExtResource("6_rw67d")
+
+[node name="NubesTormentaIz" type="Sprite2D" parent="Efectos"]
+position = Vector2(-889, -68)
+texture = ExtResource("32_q1ecm")
+
+[node name="NubesTormentaDer" type="Sprite2D" parent="Efectos"]
+position = Vector2(2585, -68)
+texture = ExtResource("33_ux1mv")
+
+[node name="FondoNegro" type="TextureRect" parent="Efectos"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.998605, 1)
+texture = ExtResource("7_vh7la")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Efectos"]
+libraries = {
+"": SubResource("AnimationLibrary_mlt6n")
+}
+
+[node name="Lluvia" type="Sprite2D" parent="Efectos"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+texture = ExtResource("8_jo411")

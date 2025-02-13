@@ -12,7 +12,7 @@ func _ready():
 	area.hideballoon.connect(noreadies)
 
 func actioned():
-	DialogueManager.show_dialogue_balloon(load("res://Dialogos/dialogue.dialogue"), "dialogo1")
+	DialogueManager.show_dialogue_balloon(load("res://Dialogos/dialogue.dialogue"), "E1D1")
 	
 func readies():
 	press_f_ballon.visible = true  # Muestra el ícono cuando recibe la señal

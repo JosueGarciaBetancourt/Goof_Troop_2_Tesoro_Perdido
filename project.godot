@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Signals="*res://Scripts/Importants/Signals.gd"
 
 [dialogue_manager]
 
@@ -25,8 +26,8 @@ general/balloon_path="res://Dialogos/Ballons/balloon.tscn"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [editor_plugins]
 

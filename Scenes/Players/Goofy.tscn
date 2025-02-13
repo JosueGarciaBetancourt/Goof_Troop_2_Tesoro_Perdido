@@ -1,8 +1,9 @@
-[gd_scene load_steps=88 format=3 uid="uid://bimclf76scsy7"]
+[gd_scene load_steps=99 format=3 uid="uid://bimclf76scsy7"]
 
 [ext_resource type="Texture2D" uid="uid://0vbhm7s72iou" path="res://assets/players/Goofy/Goofy_Hands/Goofy_Hands_Up_Up.png" id="1_bubex"]
 [ext_resource type="Texture2D" uid="uid://bs2j58nv5naq5" path="res://assets/players/Goofy/Goofy_Stop/Goofy_stop.png" id="1_k4jc3"]
 [ext_resource type="Script" path="res://Scripts/Players/GoofyController.gd" id="1_s63fl"]
+[ext_resource type="Texture2D" uid="uid://ce5thgnhk4uke" path="res://assets/players/Goofy/Goofy_Kicking/Goofy_Kicking_Right.png" id="2_40tgh"]
 [ext_resource type="Texture2D" uid="uid://bw1mi0onujeb2" path="res://assets/players/Goofy/Goofy_Walk/Goofy_Walk_Down.png" id="3_2wtbo"]
 [ext_resource type="Texture2D" uid="uid://2nxywf504smq" path="res://assets/players/Goofy/Goofy_Walk/Goofy_Walk_Right.png" id="4_41fo3"]
 [ext_resource type="Texture2D" uid="uid://5hhs44ekulol" path="res://assets/players/Goofy/Goofy_Walk/Goofy_Walk_Up.png" id="5_grnev"]
@@ -13,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://ii3h8awa38t1" path="res://assets/players/Goofy/Goofy_Stop/Goofy_stop_Right.png" id="10_6sehr"]
 [ext_resource type="Texture2D" uid="uid://xqcp1rmbnk8" path="res://assets/players/Goofy/Goofy_Stop/Goofy_stop_up.png" id="11_qkdnl"]
 [ext_resource type="Texture2D" uid="uid://srgyecn880uq" path="res://assets/players/Goofy/Goofy_Hands/Goofy_Hands_Up_Right.png" id="12_ad6y2"]
+[ext_resource type="Texture2D" uid="uid://shclh0nf5dye" path="res://assets/players/Goofy/Goofy_Kicking/Goofy_Kicking_Up.png" id="15_u6hpg"]
+[ext_resource type="Texture2D" uid="uid://cn4240qq7eomk" path="res://assets/players/Goofy/Goofy_Kicking/Goofy_Kicking_Down.png" id="16_g41jl"]
 
 [sub_resource type="Animation" id="Animation_asirq"]
 resource_name = "Goofy_Hands_Up"
@@ -787,6 +790,202 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_40tgh")]
+}
+
+[sub_resource type="Animation" id="Animation_yf8vc"]
+resource_name = "Goofy_Kicking_Right"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_40tgh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_is08d"]
+resource_name = "Goofy_Kicking_Left"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_40tgh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_cqte0"]
+resource_name = "Goofy_Kicking_Up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_u6hpg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_lv6jm"]
+resource_name = "Goofy_Kicking_Down"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("16_g41jl")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n1k1e"]
 _data = {
@@ -798,6 +997,10 @@ _data = {
 "Goofy_Hands_Up_Walk_Left": SubResource("Animation_nxwdu"),
 "Goofy_Hands_Up_Walk_Right": SubResource("Animation_34tck"),
 "Goofy_Hands_Up_Walk_Up": SubResource("Animation_xu6fl"),
+"Goofy_Kicking_Down": SubResource("Animation_lv6jm"),
+"Goofy_Kicking_Left": SubResource("Animation_is08d"),
+"Goofy_Kicking_Right": SubResource("Animation_yf8vc"),
+"Goofy_Kicking_Up": SubResource("Animation_cqte0"),
 "Goofy_Stop": SubResource("Animation_nk36c"),
 "Goofy_Stop_Left": SubResource("Animation_hjpsa"),
 "Goofy_Stop_Right": SubResource("Animation_cb1nb"),
@@ -809,7 +1012,28 @@ _data = {
 "RESET": SubResource("Animation_g6sa7")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pyk8u"]
+animation = &"Goofy_Kicking_Down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rngcv"]
+animation = &"Goofy_Stop_Up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8a3br"]
+animation = &"Goofy_Kicking_Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o0ymy"]
+animation = &"Goofy_Kicking_Left"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_t8eoa"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_pyk8u")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_rngcv")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_8a3br")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_o0ymy")
+blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_n5wkm"]
 
@@ -1032,7 +1256,7 @@ advance_mode = 2
 advance_condition = &"walking"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v7vb5"]
-states/End/position = Vector2(710.4, 109.664)
+states/End/position = Vector2(709.4, 109.664)
 states/Start/position = Vector2(-356, 165.362)
 states/kicking/node = SubResource("AnimationNodeBlendSpace2D_t8eoa")
 states/kicking/position = Vector2(388.598, 349.548)
@@ -1053,7 +1277,7 @@ states/walk/position = Vector2(654.115, 168.255)
 states/walk_hands_up/node = SubResource("AnimationNodeBlendSpace2D_ji6yp")
 states/walk_hands_up/position = Vector2(653.431, 669.214)
 transitions = ["stop", "walk", SubResource("AnimationNodeStateMachineTransition_yh24a"), "walk", "stop", SubResource("AnimationNodeStateMachineTransition_yrv5k"), "stop", "stop_hands_up", SubResource("AnimationNodeStateMachineTransition_um5bl"), "stop_hands_up", "stop", SubResource("AnimationNodeStateMachineTransition_6cy4u"), "walk_hands_up", "stop_hands_up", SubResource("AnimationNodeStateMachineTransition_pfby4"), "stop_hands_up", "walk_hands_up", SubResource("AnimationNodeStateMachineTransition_3fh8r"), "stop", "kicking", SubResource("AnimationNodeStateMachineTransition_4bk0j"), "kicking", "stop", SubResource("AnimationNodeStateMachineTransition_4n7uq"), "walk", "kicking", SubResource("AnimationNodeStateMachineTransition_tucg0"), "throwing", "stop", SubResource("AnimationNodeStateMachineTransition_w6xvc"), "stop", "using_hook", SubResource("AnimationNodeStateMachineTransition_5tnd5"), "using_hook", "stop", SubResource("AnimationNodeStateMachineTransition_owgrh"), "walk", "using_hook", SubResource("AnimationNodeStateMachineTransition_cy5b3"), "walk_hands_up", "throwing", SubResource("AnimationNodeStateMachineTransition_o67uf"), "stop_hands_up", "throwing", SubResource("AnimationNodeStateMachineTransition_xd3uq"), "walk", "picking_item", SubResource("AnimationNodeStateMachineTransition_5tsk7"), "stop", "picking_object", SubResource("AnimationNodeStateMachineTransition_e4gut"), "walk", "picking_object", SubResource("AnimationNodeStateMachineTransition_i8qp7"), "picking_object", "stop_hands_up", SubResource("AnimationNodeStateMachineTransition_rv4d7"), "stop", "picking_item", SubResource("AnimationNodeStateMachineTransition_clidp"), "picking_item", "stop", SubResource("AnimationNodeStateMachineTransition_cvce2"), "Start", "stop", SubResource("AnimationNodeStateMachineTransition_gv8bt"), "walk", "walk_hands_up", SubResource("AnimationNodeStateMachineTransition_4ryed"), "walk_hands_up", "walk", SubResource("AnimationNodeStateMachineTransition_ut07u")]
-graph_offset = Vector2(-233.655, 130.428)
+graph_offset = Vector2(-531.655, 114.428)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1338f"]
 radius = 15.0333
@@ -1068,7 +1292,7 @@ move_up = null
 move_down = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("10_6sehr")
+texture = ExtResource("2_40tgh")
 flip_h = true
 hframes = 2
 
@@ -1078,9 +1302,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_n1k1e")
-}
 tree_root = SubResource("AnimationNodeStateMachine_v7vb5")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/kicking = false
@@ -1092,7 +1313,7 @@ parameters/conditions/throwing = false
 parameters/conditions/usingHook = false
 parameters/conditions/walking = false
 parameters/conditions/walkingHandsUp = false
-parameters/kicking/blend_position = Vector2(0, 0)
+parameters/kicking/blend_position = Vector2(-1.008, 0.0220264)
 parameters/picking_item/blend_position = Vector2(0, 0)
 parameters/picking_object/blend_position = Vector2(0, 0)
 parameters/stop/blend_position = Vector2(0.0835629, -0.0719794)

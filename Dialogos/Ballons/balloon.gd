@@ -8,6 +8,7 @@ var current_title: String = ""
 
 @onready var portrait_left: TextureRect = %Balloon/PortraitLeft
 @onready var portrait_right: TextureRect = %Balloon/PortraitRight
+@onready var voice_player: AudioStreamPlayer2D = $VoicePlayer
 
 var portraits = {
 	"Goofy": preload("res://assets/portraits/GoofPortrait.png"),
@@ -41,6 +42,8 @@ var dialogue_line: DialogueLine:
 			await ready
 
 		dialogue_line = next_dialogue_line
+		# Llamar a la función para verificar eventos especiales
+		check_special_events()
 		character_label.visible = not dialogue_line.character.is_empty()
 		character_label.text = tr(dialogue_line.character, "dialogue")
 
@@ -61,6 +64,7 @@ var dialogue_line: DialogueLine:
 
 		# Actualizar los retratos según el personaje actual y el próximo
 		update_portraits(dialogue_line.character, upcoming_speaker)
+		play_voice_clip(current_title, dialogue_line.id)
 
 		dialogue_label.hide()
 		dialogue_label.dialogue_line = dialogue_line
@@ -124,6 +128,23 @@ func apply_shader(portrait: TextureRect, should_fade: bool):
 	# Aplicar transición suave
 	var tween = create_tween()
 	tween.tween_property(mat, "shader_parameter/darkness", target_darkness, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func play_voice_clip(dialogue_id: String, line_id: String):
+	# Convertir a número y restar 1 para corregir el desplazamiento
+	var line_number = line_id.to_int() - 1
+	var audio_path = "res://Dialogos/Audios/" + dialogue_id + "L" + str(line_number) + ".ogg"
+	
+	# Verificar si el archivo existe antes de intentar cargarlo
+	if FileAccess.file_exists(audio_path):
+		voice_player.stream = load(audio_path)
+		voice_player.play()
+	else:
+		print("Archivo de audio no encontrado: ", audio_path)
+
+func check_special_events():
+	if current_title == "E1D1" and dialogue_line.id.to_int() == 6:
+		print("✅ Señal enviada: E1D1 - Línea 6")
+		Signals.special_event_triggered.emit(current_title, 6)
 
 @onready var balloon: Control = %Balloon
 @onready var character_label: RichTextLabel = %CharacterLabel
