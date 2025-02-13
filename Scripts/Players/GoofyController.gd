@@ -6,22 +6,6 @@ extends PlayerController
 
 var nearestActionable: ActionArea
 var readyPressFBallon: ActionArea
-var handsUp = false
-var change_direction = false
-
-const VECTOR_DIRECTIONS = {
-	"RIGHT": Vector2(1, 0),
-	"LEFT": Vector2(-1, 0),
-	"UP": Vector2(0, -1),
-	"DOWN": Vector2(0, 1),
-	"RIGHT_DOWN": Vector2(1, 1),
-	"RIGHT_UP": Vector2(1, -1),
-	"LEFT_DOWN": Vector2(-1, 1),
-	"LEFT_UP": Vector2(-1, -1),
-}
-
-var aux_direction: Vector2
-var prev_direction: Vector2 = Vector2.ZERO  # Nueva variable para almacenar la dirección anterior
 
 func _ready():
 	animationTree.active =  true
@@ -31,90 +15,63 @@ func _ready():
 	move_up = "ui_up2"
 	move_down = "ui_down2"
 
-func get_movement_input() -> Vector2:
-	var input_vector = Vector2.ZERO
-
-	# Manejo de izquierda y derecha
-	var left_pressed = Input.is_action_pressed(move_left)
-	var right_pressed = Input.is_action_pressed(move_right)
-	var up_pressed = Input.is_action_pressed(move_up)
-	var down_pressed = Input.is_action_pressed(move_down)
-
-	if left_pressed and not right_pressed:
-		input_vector.x = -1
-	elif right_pressed and not left_pressed:
-		input_vector.x = 1
-	elif left_pressed and right_pressed: # Si ambos están presionados, prevalece izquierda (x = -1)
-		input_vector.x = -1
-
-	if up_pressed and not down_pressed:
-		input_vector.y = -1
-	elif down_pressed and not up_pressed:
-		input_vector.y = 1
-	elif up_pressed and down_pressed: # Si ambos están presionados, prevalece arriba (y = -1)
-		input_vector.y = -1
-
-	movement_direction = input_vector
-
-	return input_vector.normalized()  # Normalizamos para evitar movimientos más rápidos en diagonal
-
 func _physics_process(_delta: float) -> void:
 	animate_movement()
-	handle_movement()
+	if canMove: 
+		handle_movement()
 	check_actionables()
 
 func animate_movement():
-	# velocity, movement_direction y movement_direction_normalized están declaradas en la clase PlayerController
 	if Input.is_action_just_pressed("ui_mainInteract"):
 		handsUp = !handsUp
 
 	if (velocity.length() == 0):
-		if handsUp:
-			animationTree["parameters/conditions/stoppingHandsUp"] = true
-			animationTree["parameters/conditions/stopping"] = false
-		else:
-			animationTree["parameters/conditions/stopping"] = true
-			animationTree["parameters/conditions/stoppingHandsUp"] = false
-		
+		change_direction_to_vertical = false
+
 		animationTree["parameters/conditions/walking"] = false
 		animationTree["parameters/conditions/walkingHandsUp"] = false
-
-		change_direction = false
+		animationTree["parameters/conditions/stopping"] = !handsUp
+		animationTree["parameters/conditions/stoppingHandsUp"] = handsUp
 	else:
-		# Detectar cambio de dirección de horizontal a diagonal/vertical
-		if prev_direction.y == 0 and movement_direction.x != 0 and movement_direction.y != 0:
-			change_direction = true
-
-		if movement_direction == VECTOR_DIRECTIONS["UP"] or movement_direction == VECTOR_DIRECTIONS["DOWN"] :
-			change_direction = false
-
-		# Guardar la dirección actual como anterior para la próxima verificación
-		prev_direction = movement_direction
-
-		if handsUp:
-			animationTree["parameters/conditions/walkingHandsUp"] = true
-			animationTree["parameters/conditions/walking"] = false
-		else:
-			animationTree["parameters/conditions/walking"] = true
-			animationTree["parameters/conditions/walkingHandsUp"] = false
-
+		detect_change_direction()
+		
 		animationTree["parameters/conditions/stopping"] = false
 		animationTree["parameters/conditions/stoppingHandsUp"] = false
-
+		animationTree["parameters/conditions/walking"] = !handsUp
+		animationTree["parameters/conditions/walkingHandsUp"] = handsUp
+		
+		# Designar direcciones
 		animationTree["parameters/stop/blend_position"] = movement_direction
 		animationTree["parameters/stop_hands_up/blend_position"] = movement_direction
-		animationTree["parameters/walk/blend_position"] = movement_direction
-		animationTree["parameters/walk_hands_up/blend_position"] = movement_direction
-
-		if (change_direction):
+		
+		if (change_direction_to_vertical):
 			animationTree["parameters/walk/blend_position"] = Vector2(movement_direction.x, 0)
 			animationTree["parameters/walk_hands_up/blend_position"] = Vector2(movement_direction.x, 0)
+		else: 
+			animationTree["parameters/walk/blend_position"] = movement_direction
+			animationTree["parameters/walk_hands_up/blend_position"] = movement_direction
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("ui_accept") && nearestActionable != null:
 		if is_instance_valid(nearestActionable):
 			nearestActionable.emit_signal("actionated")
-			
+
+	if event.is_action_pressed("ui_kicking") and !animationTree["parameters/conditions/stoppingHandsUp"] \
+											 and !animationTree["parameters/conditions/walkingHandsUp"]:
+		if (change_direction_to_vertical):
+			animationTree["parameters/kicking/blend_position"] = Vector2(movement_direction.x, 0)
+		elif (change_direction_to_horizontal):
+			animationTree["parameters/kicking/blend_position"] = Vector2(0, movement_direction.y)
+		else: 
+			animationTree["parameters/kicking/blend_position"] = Vector2(prev_direction)
+
+		animationTree["parameters/conditions/kicking"] = true
+
+		canMove = false
+		await get_tree().create_timer(0.3).timeout
+		animationTree["parameters/conditions/kicking"] = false
+		canMove = true
+
 func check_actionables() -> void:
 	var areas: Array[Area2D] = actionArea.get_overlapping_areas()
 	var shortDistance: float = INF

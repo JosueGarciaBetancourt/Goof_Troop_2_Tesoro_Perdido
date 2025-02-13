@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnukt2yfcmehy"]
+
+[ext_resource type="Texture2D" uid="uid://c4rpm6x3cgvax" path="res://assets/objects/Star_Block.png" id="1_ciud1"]
+[ext_resource type="Script" path="res://Scripts/Importants/Actionable.gd" id="2_7kkp0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34h62"]
+size = Vector2(66, 64.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jykqy"]
+size = Vector2(69, 65)
+
+[node name="Starblock" type="StaticBody2D"]
+z_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(34, 32)
+scale = Vector2(2.091, 2)
+texture = ExtResource("1_ciud1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(34, 31.875)
+shape = SubResource("RectangleShape2D_34h62")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="ActionArea" type="Area2D" parent="."]
+script = ExtResource("2_7kkp0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionArea"]
+position = Vector2(34, 32)
+shape = SubResource("RectangleShape2D_jykqy")
+debug_color = Color(0.835294, 0.247059, 0.745098, 0.419608)

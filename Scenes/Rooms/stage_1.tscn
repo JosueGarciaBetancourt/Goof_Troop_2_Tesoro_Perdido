@@ -1,9 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://c8l3fwfb4yrxv"]
+[gd_scene load_steps=38 format=3 uid="uid://c8l3fwfb4yrxv"]
 
 [ext_resource type="PackedScene" uid="uid://bhvpx244t3dfo" path="res://Scenes/TileMap/tmStage1.tscn" id="1_sct7h"]
 [ext_resource type="PackedScene" uid="uid://bimclf76scsy7" path="res://Scenes/Players/Goofy.tscn" id="1_suvoh"]
 [ext_resource type="PackedScene" uid="uid://2ktdmptnvcxt" path="res://Scenes/Players/Taka.tscn" id="2_24rgm"]
-[ext_resource type="PackedScene" uid="uid://cfbx326p25ld1" path="res://Scenes/TileMap/tmShip.tscn" id="2_pbsgv"]
+[ext_resource type="PackedScene" path="res://Scenes/TileMap/tmShip.tscn" id="2_pbsgv"]
 [ext_resource type="Script" path="res://Scripts/Players/PlayerController.gd" id="3_370la"]
 [ext_resource type="Script" path="res://Scripts/Effects/Storm.gd" id="6_rw67d"]
 [ext_resource type="Texture2D" uid="uid://d2tjxevxr1ggp" path="res://assets/effects/BlackBackground.png" id="7_vh7la"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://bqy87l7oxapwk" path="res://assets/effects/rain/Rain (24).png" id="31_v23kb"]
 [ext_resource type="Texture2D" uid="uid://du1p7xuy4gfod" path="res://assets/effects/clouds/NubesTormentaIz.png" id="32_q1ecm"]
 [ext_resource type="Texture2D" uid="uid://cir0ysfmpfsv0" path="res://assets/effects/clouds/NubesTormentaDer.png" id="33_ux1mv"]
+[ext_resource type="PackedScene" uid="uid://bnukt2yfcmehy" path="res://Scenes/Objects/Starblock.tscn" id="34_lmps6"]
 
 [sub_resource type="Animation" id="Animation_e0wl5"]
 length = 0.001
@@ -75,7 +76,6 @@ _data = {
 [node name="Stage_1" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_sct7h")]
-visible = false
 
 [node name="tmShip" parent="." instance=ExtResource("2_pbsgv")]
 
@@ -115,3 +115,6 @@ libraries = {
 modulate = Color(1, 1, 1, 0)
 position = Vector2(960, 540)
 texture = ExtResource("8_jo411")
+
+[node name="Starblock" parent="." instance=ExtResource("34_lmps6")]
+position = Vector2(895, 664)
