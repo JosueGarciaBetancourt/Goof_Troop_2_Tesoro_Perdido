@@ -25,8 +25,9 @@ func animate_movement():
 	if Input.is_action_just_pressed("ui_mainInteract"):
 		handsUp = !handsUp
 
-	if (velocity.length() == 0):
+	if (movement_direction == Vector2.ZERO and velocity.length() == 0):
 		change_direction_to_vertical = false
+		change_direction_to_horizontal = false
 
 		animationTree["parameters/conditions/walking"] = false
 		animationTree["parameters/conditions/walkingHandsUp"] = false

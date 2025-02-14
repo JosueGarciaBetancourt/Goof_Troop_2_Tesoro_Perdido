@@ -9,7 +9,7 @@ size = Vector2(66, 64.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jykqy"]
 size = Vector2(69, 65)
 
-[node name="Starblock" type="StaticBody2D"]
+[node name="Starblock_1" type="StaticBody2D"]
 z_index = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

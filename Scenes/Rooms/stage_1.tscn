@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c8l3fwfb4yrxv"]
+[gd_scene load_steps=41 format=3 uid="uid://c8l3fwfb4yrxv"]
 
 [ext_resource type="PackedScene" uid="uid://bhvpx244t3dfo" path="res://Scenes/TileMap/tmStage1.tscn" id="1_sct7h"]
 [ext_resource type="PackedScene" uid="uid://bimclf76scsy7" path="res://Scenes/Players/Goofy.tscn" id="1_suvoh"]
@@ -35,6 +35,8 @@
 [ext_resource type="Texture2D" uid="uid://cir0ysfmpfsv0" path="res://assets/effects/clouds/NubesTormentaDer.png" id="33_ux1mv"]
 [ext_resource type="PackedScene" uid="uid://bnukt2yfcmehy" path="res://Scenes/Objects/Starblock.tscn" id="34_lmps6"]
 [ext_resource type="Texture2D" uid="uid://ccsw1ueke8xkb" path="res://assets/effects/WhiteBackground.png" id="35_dmr35"]
+[ext_resource type="Script" path="res://Scripts/Objects/StarblockController.gd" id="35_o77ue"]
+[ext_resource type="Script" path="res://Scenes/Objects/Starblock_1.gd" id="37_fwr8i"]
 
 [sub_resource type="Animation" id="Animation_e0wl5"]
 length = 0.001
@@ -89,9 +91,6 @@ script = ExtResource("3_370la")
 [node name="Goofy" parent="PlayerController" instance=ExtResource("1_suvoh")]
 position = Vector2(186, 220)
 
-[node name="Starblock" parent="." instance=ExtResource("34_lmps6")]
-position = Vector2(895, 664)
-
 [node name="Efectos" type="Node2D" parent="."]
 script = ExtResource("6_rw67d")
 
@@ -133,3 +132,10 @@ modulate = Color(1, 1, 1, 0)
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("35_dmr35")
+
+[node name="StarblockController" type="StaticBody2D" parent="."]
+script = ExtResource("35_o77ue")
+
+[node name="Starblock_1" parent="StarblockController" instance=ExtResource("34_lmps6")]
+position = Vector2(895, 664)
+script = ExtResource("37_fwr8i")

@@ -1303,11 +1303,6 @@ radius = 15.5081
 [node name="Goofy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_s63fl")
-movement_speed = null
-move_left = null
-move_right = null
-move_up = null
-move_down = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_40tgh")
@@ -1320,6 +1315,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n1k1e")
+}
 tree_root = SubResource("AnimationNodeStateMachine_v7vb5")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/kicking = false
