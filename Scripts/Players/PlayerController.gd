@@ -33,6 +33,12 @@ func _ready():
 
 func _physics_process(_delta: float) -> void:
 	pass
+	
+func debugLabels():
+	DebugHelperController.debugPrevDirectionLabel(prev_direction)
+	DebugHelperController.debugMovementDirectionLabel(movement_direction)
+	DebugHelperController.debugHandsUpLabel(handsUp)
+	DebugHelperController.debugKickingLabel(kicking)
 
 # Método virtual para permitir distintos tipos de control en las clases hijas
 func get_movement_input() -> Vector2:
@@ -59,8 +65,6 @@ func get_movement_input() -> Vector2:
 		input_vector.y = -1
 
 	movement_direction = input_vector
-
-	DebugHelperController.debugMovementDirectionLabel(movement_direction)
 
 	return input_vector.normalized()  # Normalizamos para evitar movimientos más rápidos en diagonal
 
