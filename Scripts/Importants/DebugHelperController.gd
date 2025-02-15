@@ -4,9 +4,14 @@ extends Node
 @onready var movementDirectionLabel: Label = get_node("/root/Stage_1/DebugLabels/movement_direction_label")
 @onready var handsUpLabel: Label = get_node("/root/Stage_1/DebugLabels/handsUp_label")
 @onready var kickingLabel: Label = get_node("/root/Stage_1/DebugLabels/kicking_label")
+@onready var infoMessageLabel: Label = get_node("/root/Stage_1/DebugLabels/infoMessage_label")
 
 func _ready():
 	pass
+
+func debugInfoMessageLabel(infoMessage):
+	if infoMessageLabel:
+		infoMessageLabel.text = str(infoMessage)
 
 func debugPrevDirectionLabel(prevDirection):
 	if prevDirectionLabel:

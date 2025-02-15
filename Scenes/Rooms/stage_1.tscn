@@ -142,8 +142,13 @@ position = Vector2(888, 749)
 script = ExtResource("37_fwr8i")
 
 [node name="DebugLabels" type="Node2D" parent="."]
-position = Vector2(1168, 538)
+position = Vector2(1132, 538)
 script = ExtResource("37_xas22")
+
+[node name="ColorRect" type="ColorRect" parent="DebugLabels"]
+offset_right = 460.0
+offset_bottom = 250.0
+color = Color(0, 0, 0, 0.192157)
 
 [node name="prev_direction_label" type="Label" parent="DebugLabels"]
 z_index = 100
@@ -194,7 +199,14 @@ theme_override_font_sizes/font_size = 25
 text = "kicking:  
 "
 
-[node name="ColorRect" type="ColorRect" parent="DebugLabels"]
-offset_right = 432.0
-offset_bottom = 183.0
-color = Color(0, 0, 0, 0.192157)
+[node name="infoMessage_label" type="Label" parent="DebugLabels"]
+z_index = 100
+texture_filter = 6
+offset_left = 21.0
+offset_top = 185.0
+offset_right = 452.0
+offset_bottom = 254.0
+theme_override_colors/font_color = Color(0.635294, 0.882353, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+autowrap_mode = 3

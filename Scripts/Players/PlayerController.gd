@@ -33,7 +33,7 @@ func _ready():
 
 func _physics_process(_delta: float) -> void:
 	pass
-	
+
 func debugLabels():
 	DebugHelperController.debugPrevDirectionLabel(prev_direction)
 	DebugHelperController.debugMovementDirectionLabel(movement_direction)

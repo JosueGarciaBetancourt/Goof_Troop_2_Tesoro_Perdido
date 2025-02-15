@@ -72,32 +72,26 @@ func _unhandled_input(event: InputEvent):
 											 and !animationTree["parameters/conditions/walkingHandsUp"]:
 
 		var obj = check_nearest_object()
-		if obj:
-			print("El objeto más cercano es:", obj.name)
-		else:
-			print("no hay objetos pateables")
-			
-		if (change_direction_to_vertical):
-			animationTree["parameters/kicking/blend_position"] = Vector2(movement_direction.x, 0)
-		elif (change_direction_to_horizontal):
-			animationTree["parameters/kicking/blend_position"] = Vector2(0, movement_direction.y)
-		else: 
-			animationTree["parameters/kicking/blend_position"] = Vector2(prev_direction)
-
-		animationTree["parameters/conditions/kicking"] = true
-
-		canMove = false
-		kicking = true
 		
+		if obj:
+			if (change_direction_to_vertical):
+				animationTree["parameters/kicking/blend_position"] = Vector2(movement_direction.x, 0)
+			elif (change_direction_to_horizontal):
+				animationTree["parameters/kicking/blend_position"] = Vector2(0, movement_direction.y)
+			else: 
+				animationTree["parameters/kicking/blend_position"] = Vector2(prev_direction)
 
-		await get_tree().create_timer(0.3).timeout
+			animationTree["parameters/conditions/kicking"] = true
 
-		animationTree["parameters/conditions/kicking"] = false
-		canMove = true
-		kicking = false
+			canMove = false
+			kicking = true
 
-		DebugHelperController.debugKickingLabel(kicking)
-	
+			await get_tree().create_timer(0.3).timeout
+
+			animationTree["parameters/conditions/kicking"] = false
+			canMove = true
+			kicking = false
+
 func check_actionables() -> void:
 	var areas: Array[Area2D] = actionArea.get_overlapping_areas()
 	var shortDistance: float = INF
@@ -131,6 +125,11 @@ func check_actionables() -> void:
 
 func check_nearest_object():
 	var areas: Array[Area2D] = area2DDetectObject.get_overlapping_areas()
+
+	if (areas == [] or areas == null):
+		DebugHelperController.debugInfoMessageLabel("No hay áreas cercanas")
+		return null
+
 	var shortDistance: float = INF
 	var nearest_object: Area2D = null  # Guardará el objeto más cercano
 
@@ -141,8 +140,10 @@ func check_nearest_object():
 			nearest_object = area  # Guarda el objeto más cercano
 
 	if nearest_object:
-		print("Objeto más cercano: ", nearest_object.name)  # Imprime su nombre
+		DebugHelperController.debugInfoMessageLabel("Objeto más cercano: " + nearest_object.name)
 		return nearest_object  # Devuelve el objeto más cercano
+	else:
+		DebugHelperController.debugInfoMessageLabel("No hay objetos cercanos")
 
 	return null  # Si no hay objetos, devuelve null
 
