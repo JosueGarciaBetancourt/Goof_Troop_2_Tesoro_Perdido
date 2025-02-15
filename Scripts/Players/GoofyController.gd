@@ -8,6 +8,7 @@ extends PlayerController
 
 var nearestActionable: ActionArea
 var readyPressFBallon: ActionArea
+var nearest_object: ActionAreaObjects
 
 func _ready():
 	animationTree.active =  true
@@ -64,16 +65,19 @@ func animate_movement():
 			collisionShape2DDetectObject.rotation = prev_direction.angle()
 
 func _unhandled_input(event: InputEvent):
-	if event.is_action_pressed("ui_accept") && nearestActionable != null:
+	if event.is_action_pressed("ui_kicking") && nearestActionable != null:
 		if is_instance_valid(nearestActionable):
 			nearestActionable.emit_signal("actionated")
 
 	if event.is_action_pressed("ui_kicking") and !animationTree["parameters/conditions/stoppingHandsUp"] \
 											 and !animationTree["parameters/conditions/walkingHandsUp"]:
 
-		var obj = check_nearest_object()
+		var nearestObj = check_nearest_object()
 		
-		if obj:
+		if nearestObj:
+			# Emitir la señal mientras el jugador esté cerca
+			nearestObj.emit_signal("kicked")
+
 			if (change_direction_to_vertical):
 				animationTree["parameters/kicking/blend_position"] = Vector2(movement_direction.x, 0)
 			elif (change_direction_to_horizontal):
@@ -131,7 +135,7 @@ func check_nearest_object():
 		return null
 
 	var shortDistance: float = INF
-	var nearest_object: Area2D = null  # Guardará el objeto más cercano
+	nearest_object = null  # Guardará el objeto más cercano
 
 	for area in areas:
 		var distance: float = area.global_position.distance_to(global_position)

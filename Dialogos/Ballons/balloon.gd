@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var next_action: StringName = &"ui_accept"
+@export var next_action: StringName = &"ui_kicking"
 @export var skip_action: StringName = &"ui_cancel"
 
 var resource: DialogueResource

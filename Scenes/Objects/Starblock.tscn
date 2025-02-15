@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bnukt2yfcmehy"]
 
 [ext_resource type="Texture2D" uid="uid://c4rpm6x3cgvax" path="res://assets/objects/Star_Block.png" id="1_ciud1"]
-[ext_resource type="Script" path="res://Scripts/Importants/Actionable.gd" id="2_7kkp0"]
+[ext_resource type="Script" path="res://Scripts/Importants/ActionableObjects.gd" id="2_15m0h"]
 
 [sub_resource type="GDScript" id="GDScript_0vg8i"]
 script/source = "extends StaticBody2D
@@ -39,7 +39,7 @@ debug_color = Color(0.160784, 0.627451, 0.411765, 0.419608)
 [node name="ActionAreaStarblock" type="Area2D" parent="."]
 collision_layer = 128
 collision_mask = 0
-script = ExtResource("2_7kkp0")
+script = ExtResource("2_15m0h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActionAreaStarblock"]
 position = Vector2(34, 32)
