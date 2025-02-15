@@ -1,16 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnukt2yfcmehy"]
+[gd_scene load_steps=6 format=3 uid="uid://bnukt2yfcmehy"]
 
 [ext_resource type="Texture2D" uid="uid://c4rpm6x3cgvax" path="res://assets/objects/Star_Block.png" id="1_ciud1"]
 [ext_resource type="Script" path="res://Scripts/Importants/Actionable.gd" id="2_7kkp0"]
 
+[sub_resource type="GDScript" id="GDScript_0vg8i"]
+script/source = "extends StaticBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34h62"]
-size = Vector2(66, 64.25)
+size = Vector2(71, 45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jykqy"]
 size = Vector2(69, 65)
 
-[node name="Starblock_1" type="StaticBody2D"]
-z_index = 1
+[node name="Starblock" type="StaticBody2D"]
+script = SubResource("GDScript_0vg8i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(34, 32)
@@ -18,15 +32,15 @@ scale = Vector2(2.091, 2)
 texture = ExtResource("1_ciud1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(34, 31.875)
+position = Vector2(34, 32)
 shape = SubResource("RectangleShape2D_34h62")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="ActionArea" type="Area2D" parent="."]
+[node name="ActionAreaStarblock" type="Area2D" parent="."]
 script = ExtResource("2_7kkp0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionAreaStarblock"]
+visible = false
 position = Vector2(34, 32)
 shape = SubResource("RectangleShape2D_jykqy")
 debug_color = Color(0.835294, 0.247059, 0.745098, 0.419608)
