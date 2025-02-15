@@ -8,6 +8,7 @@ class_name PlayerController
 @export var move_down: String = "ui_down"
 
 var handsUp: bool = false
+var kicking: bool = false
 var change_direction_to_vertical: bool = false
 var change_direction_to_horizontal: bool = false
 
@@ -27,14 +28,8 @@ const VECTOR_DIRECTIONS = {
 	"LEFT_UP": Vector2(-1, -1),
 }
 
-@onready var prevDirectionLabel = $DebugLabels/prev_direction_label
-@onready var movementDirectionLabel = $DebugLabels/movement_direction_label
-@onready var handsUpLabel = $DebugLabels/handsUp_label
-@onready var kickingLabel = $DebugLabels/kicking_label
-
 func _ready():
-	print(DebugHelperController)
-	DebugHelperController.set_labels(prevDirectionLabel, movementDirectionLabel, handsUpLabel, kickingLabel)
+	pass
 
 func _physics_process(_delta: float) -> void:
 	pass

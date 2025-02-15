@@ -3,7 +3,7 @@ extends PlayerController
 @onready var animationTree = $AnimationTree
 @onready var ActionMarker = $ActionableMarker
 @onready var actionArea = $ActionableMarker/ActionableArea2D
-@onready var collisionShape2DDetectObject = $CollisionShape2DDetectObject 
+@onready var collisionShape2DDetectObject = $Area2DDetectObject/CollisionShape2DDetectObject 
 
 var nearestActionable: ActionArea
 var readyPressFBallon: ActionArea
@@ -26,6 +26,9 @@ func animate_movement():
 	if Input.is_action_just_pressed("ui_mainInteract"):
 		handsUp = !handsUp
 
+	DebugHelperController.debugHandsUpLabel(handsUp)
+
+
 	if (movement_direction == Vector2.ZERO and velocity.length() == 0):
 		change_direction_to_vertical = false
 		change_direction_to_horizontal = false
@@ -39,6 +42,8 @@ func animate_movement():
 
 		# Guardar la dirección actual como anterior para la próxima verificación
 		prev_direction = movement_direction
+		
+		DebugHelperController.debugPrevDirectionLabel(prev_direction)
 
 		animationTree["parameters/conditions/stopping"] = false
 		animationTree["parameters/conditions/stoppingHandsUp"] = false
@@ -77,10 +82,18 @@ func _unhandled_input(event: InputEvent):
 		animationTree["parameters/conditions/kicking"] = true
 
 		canMove = false
+		kicking = true
+		
+		DebugHelperController.debugKickingLabel(kicking)
+
 		await get_tree().create_timer(0.3).timeout
+
 		animationTree["parameters/conditions/kicking"] = false
 		canMove = true
+		kicking = false
 
+		DebugHelperController.debugKickingLabel(kicking)
+	
 func check_actionables() -> void:
 	var areas: Array[Area2D] = actionArea.get_overlapping_areas()
 	var shortDistance: float = INF

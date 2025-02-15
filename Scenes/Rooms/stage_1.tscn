@@ -131,11 +131,6 @@ texture = ExtResource("35_dmr35")
 [node name="PlayerController" type="CharacterBody2D" parent="."]
 z_index = 1
 script = ExtResource("3_370la")
-movement_speed = null
-move_left = null
-move_right = null
-move_up = null
-move_down = null
 
 [node name="Goofy" parent="PlayerController" instance=ExtResource("1_suvoh")]
 position = Vector2(800, 750)

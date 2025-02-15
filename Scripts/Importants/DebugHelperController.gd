@@ -1,20 +1,17 @@
 extends Node
 
-var prevDirectionLabel: Label = null
-var movementDirectionLabel: Label = null
-var handsUpLabel: Label = null
-var kickingLabel: Label = null
+@onready var prevDirectionLabel: Label = get_node("/root/Stage_1/DebugLabels/prev_direction_label")
+@onready var movementDirectionLabel: Label = get_node("/root/Stage_1/DebugLabels/movement_direction_label")
+@onready var handsUpLabel: Label = get_node("/root/Stage_1/DebugLabels/handsUp_label")
+@onready var kickingLabel: Label = get_node("/root/Stage_1/DebugLabels/kicking_label")
 
-func set_labels(prev_label: Label, move_label: Label, hands_label: Label, kick_label: Label):
-	prevDirectionLabel = prev_label
-	movementDirectionLabel = move_label
-	handsUpLabel = hands_label
-	kickingLabel = kick_label
+func _ready():
+	pass
 
 func debugPrevDirectionLabel(prevDirection):
 	if prevDirectionLabel:
 		prevDirectionLabel.text = "prev_direction: " + str(prevDirection)
-
+	
 func debugMovementDirectionLabel(movementDirection):
 	if movementDirectionLabel:
 		movementDirectionLabel.text = "movement_direction: " + str(movementDirection)
