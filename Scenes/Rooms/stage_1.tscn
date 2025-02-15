@@ -1,5 +1,6 @@
-[gd_scene load_steps=41 format=3 uid="uid://c8l3fwfb4yrxv"]
+[gd_scene load_steps=42 format=3 uid="uid://c8l3fwfb4yrxv"]
 
+[ext_resource type="Script" path="res://Scripts/Importants/Stage_1_Controller.gd" id="1_2s6tp"]
 [ext_resource type="PackedScene" uid="uid://bhvpx244t3dfo" path="res://Scenes/TileMap/tmStage1.tscn" id="1_sct7h"]
 [ext_resource type="PackedScene" uid="uid://bimclf76scsy7" path="res://Scenes/Players/Goofy.tscn" id="1_suvoh"]
 [ext_resource type="PackedScene" uid="uid://2ktdmptnvcxt" path="res://Scenes/Players/Taka.tscn" id="2_24rgm"]
@@ -77,6 +78,7 @@ _data = {
 }
 
 [node name="Stage_1" type="Node2D"]
+script = ExtResource("1_2s6tp")
 
 [node name="TileMap" parent="." instance=ExtResource("1_sct7h")]
 

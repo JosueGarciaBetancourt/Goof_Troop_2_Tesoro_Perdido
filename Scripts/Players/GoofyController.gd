@@ -3,6 +3,7 @@ extends PlayerController
 @onready var animationTree = $AnimationTree
 @onready var ActionMarker = $ActionableMarker
 @onready var actionArea = $ActionableMarker/ActionableArea2D
+@onready var area2DDetectObject = $Area2DDetectObject
 @onready var collisionShape2DDetectObject = $Area2DDetectObject/CollisionShape2DDetectObject 
 
 var nearestActionable: ActionArea
@@ -21,13 +22,11 @@ func _physics_process(_delta: float) -> void:
 	if canMove: 
 		handle_movement()
 	check_actionables()
+	debugLabels()
 
 func animate_movement():
 	if Input.is_action_just_pressed("ui_mainInteract"):
 		handsUp = !handsUp
-
-	DebugHelperController.debugHandsUpLabel(handsUp)
-
 
 	if (movement_direction == Vector2.ZERO and velocity.length() == 0):
 		change_direction_to_vertical = false
@@ -43,7 +42,6 @@ func animate_movement():
 		# Guardar la dirección actual como anterior para la próxima verificación
 		prev_direction = movement_direction
 		
-		DebugHelperController.debugPrevDirectionLabel(prev_direction)
 
 		animationTree["parameters/conditions/stopping"] = false
 		animationTree["parameters/conditions/stoppingHandsUp"] = false
@@ -72,6 +70,13 @@ func _unhandled_input(event: InputEvent):
 
 	if event.is_action_pressed("ui_kicking") and !animationTree["parameters/conditions/stoppingHandsUp"] \
 											 and !animationTree["parameters/conditions/walkingHandsUp"]:
+
+		var obj = check_nearest_object()
+		if obj:
+			print("El objeto más cercano es:", obj.name)
+		else:
+			print("no hay objetos pateables")
+			
 		if (change_direction_to_vertical):
 			animationTree["parameters/kicking/blend_position"] = Vector2(movement_direction.x, 0)
 		elif (change_direction_to_horizontal):
@@ -84,7 +89,6 @@ func _unhandled_input(event: InputEvent):
 		canMove = false
 		kicking = true
 		
-		DebugHelperController.debugKickingLabel(kicking)
 
 		await get_tree().create_timer(0.3).timeout
 
@@ -124,3 +128,21 @@ func check_actionables() -> void:
 			
 		nearestActionable = null
 		readyPressFBallon = null # Evita referencias inválidas
+
+func check_nearest_object():
+	var areas: Array[Area2D] = area2DDetectObject.get_overlapping_areas()
+	var shortDistance: float = INF
+	var nearest_object: Area2D = null  # Guardará el objeto más cercano
+
+	for area in areas:
+		var distance: float = area.global_position.distance_to(global_position)
+		if distance < shortDistance:
+			shortDistance = distance
+			nearest_object = area  # Guarda el objeto más cercano
+
+	if nearest_object:
+		print("Objeto más cercano: ", nearest_object.name)  # Imprime su nombre
+		return nearest_object  # Devuelve el objeto más cercano
+
+	return null  # Si no hay objetos, devuelve null
+
