@@ -1297,8 +1297,9 @@ graph_offset = Vector2(-317.246, 134.264)
 [sub_resource type="CircleShape2D" id="CircleShape2D_1338f"]
 radius = 15.0333
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t3d76"]
-radius = 15.5081
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ro1xt"]
+radius = 7.5
+height = 26.0
 
 [node name="Goofy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
@@ -1350,6 +1351,7 @@ position = Vector2(0, 21)
 shape = SubResource("CircleShape2D_1338f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 21)
-shape = SubResource("CircleShape2D_t3d76")
+position = Vector2(-0.5, 27)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ro1xt")
 debug_color = Color(0.929781, 0.252364, 0.21137, 0.42)
