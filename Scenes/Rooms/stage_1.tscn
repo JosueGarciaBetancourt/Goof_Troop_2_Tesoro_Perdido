@@ -124,6 +124,8 @@ texture = ExtResource("8_jo411")
 [node name="ThunderAudio" type="AudioStreamPlayer2D" parent="Efectos/SoundEffects"]
 volume_db = 10.0
 
+[node name="OceanAudio" type="AudioStreamPlayer2D" parent="Efectos/SoundEffects"]
+
 [node name="LightningFlash" type="TextureRect" parent="Efectos"]
 modulate = Color(1, 1, 1, 0)
 offset_right = 40.0

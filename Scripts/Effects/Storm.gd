@@ -6,6 +6,7 @@ extends Node2D
 @onready var anim_player = $AnimationPlayer
 @onready var lluvia = $Lluvia
 @onready var EfectosDeSonido = $SoundEffects
+@onready var ocean_audio = $SoundEffects/OceanAudio # Nodo para el oceano de fondo
 @onready var storm_audio = $SoundEffects/StormAudio  # Nodo para la tormenta
 @onready var thunder_audio = $SoundEffects/ThunderAudio  # Nodo para los truenos
 @onready var lightning_flash = $LightningFlash  # Nodo para el destello
@@ -13,7 +14,15 @@ extends Node2D
 var thunder_timer = Timer.new()  # Temporizador para los truenos
 
 func _ready():
+	
 	Signals.special_event_triggered.connect(_on_special_event_triggered)
+	
+	# Cargar el audio del océano y activarlo en bucle
+	var ocean_stream = load("res://assets/effects/soundeffects/Ocean.ogg")
+	ocean_stream.set_loop(true)  # Activa el loop en el recurso de audio
+	ocean_audio.stream = ocean_stream
+	ocean_audio.volume_db = 3  # Ajusta el volumen si es necesario
+	ocean_audio.play()
 	
 	# Configurar temporizador para los truenos
 	thunder_timer.wait_time = randf_range(5, 10)  # Tiempo aleatorio entre 5 y 10 segundos
@@ -25,6 +34,10 @@ func _ready():
 func _on_special_event_triggered(dialogue_name, line_number):
 	print("🎯 Señal recibida en", dialogue_name, "línea", line_number)
 	var tween = get_tree().create_tween().set_parallel(true)  # Mover todo al mismo tiempo
+	
+	# Reducir gradualmente el volumen del océano en 3 segundos
+	tween.tween_property(ocean_audio, "volume_db", -60, 3.0)  # -60 dB es prácticamente inaudible
+	tween.tween_callback(ocean_audio.stop)  # Detener el audio después de la transición
 	
 	# Mover ambas nubes simultáneamente
 	tween.tween_property(nubes_izq, "position", nubes_izq.position + Vector2(1450, 0), 3.0)
