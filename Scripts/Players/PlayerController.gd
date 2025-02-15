@@ -6,6 +6,7 @@ class_name PlayerController
 @export var move_right: String = "ui_right"
 @export var move_up: String = "ui_up"
 @export var move_down: String = "ui_down"
+
 var handsUp: bool = false
 var change_direction_to_vertical: bool = false
 var change_direction_to_horizontal: bool = false
@@ -25,6 +26,15 @@ const VECTOR_DIRECTIONS = {
 	"LEFT_DOWN": Vector2(-1, 1),
 	"LEFT_UP": Vector2(-1, -1),
 }
+
+@onready var prevDirectionLabel = $DebugLabels/prev_direction_label
+@onready var movementDirectionLabel = $DebugLabels/movement_direction_label
+@onready var handsUpLabel = $DebugLabels/handsUp_label
+@onready var kickingLabel = $DebugLabels/kicking_label
+
+func _ready():
+	print(DebugHelperController)
+	DebugHelperController.set_labels(prevDirectionLabel, movementDirectionLabel, handsUpLabel, kickingLabel)
 
 func _physics_process(_delta: float) -> void:
 	pass
@@ -55,6 +65,8 @@ func get_movement_input() -> Vector2:
 
 	movement_direction = input_vector
 
+	DebugHelperController.debugMovementDirectionLabel(movement_direction)
+
 	return input_vector.normalized()  # Normalizamos para evitar movimientos más rápidos en diagonal
 
 func handle_movement() -> void:
@@ -77,5 +89,4 @@ func detect_change_direction():
 	if movement_direction == VECTOR_DIRECTIONS["RIGHT"] or movement_direction == VECTOR_DIRECTIONS["LEFT"] :
 		change_direction_to_horizontal = false
 
-	# Guardar la dirección actual como anterior para la próxima verificación
-	prev_direction = movement_direction
+	

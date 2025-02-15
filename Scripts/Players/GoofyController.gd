@@ -3,6 +3,7 @@ extends PlayerController
 @onready var animationTree = $AnimationTree
 @onready var ActionMarker = $ActionableMarker
 @onready var actionArea = $ActionableMarker/ActionableArea2D
+@onready var collisionShape2DDetectObject = $CollisionShape2DDetectObject 
 
 var nearestActionable: ActionArea
 var readyPressFBallon: ActionArea
@@ -35,7 +36,10 @@ func animate_movement():
 		animationTree["parameters/conditions/stoppingHandsUp"] = handsUp
 	else:
 		detect_change_direction()
-		
+
+		# Guardar la dirección actual como anterior para la próxima verificación
+		prev_direction = movement_direction
+
 		animationTree["parameters/conditions/stopping"] = false
 		animationTree["parameters/conditions/stoppingHandsUp"] = false
 		animationTree["parameters/conditions/walking"] = !handsUp
@@ -48,9 +52,13 @@ func animate_movement():
 		if (change_direction_to_vertical):
 			animationTree["parameters/walk/blend_position"] = Vector2(movement_direction.x, 0)
 			animationTree["parameters/walk_hands_up/blend_position"] = Vector2(movement_direction.x, 0)
+			collisionShape2DDetectObject.rotation = Vector2(movement_direction.x, 0).angle()
+		elif (change_direction_to_horizontal):
+			collisionShape2DDetectObject.rotation = Vector2(0, movement_direction.y).angle()
 		else: 
 			animationTree["parameters/walk/blend_position"] = movement_direction
 			animationTree["parameters/walk_hands_up/blend_position"] = movement_direction
+			collisionShape2DDetectObject.rotation = prev_direction.angle()
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("ui_accept") && nearestActionable != null:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://bimclf76scsy7"]
+[gd_scene load_steps=104 format=3 uid="uid://bimclf76scsy7"]
 
 [ext_resource type="Texture2D" uid="uid://0vbhm7s72iou" path="res://assets/players/Goofy/Goofy_Hands/Goofy_Hands_Up_Up.png" id="1_bubex"]
 [ext_resource type="Texture2D" uid="uid://bs2j58nv5naq5" path="res://assets/players/Goofy/Goofy_Stop/Goofy_stop.png" id="1_k4jc3"]
@@ -1301,9 +1301,15 @@ radius = 15.0333
 radius = 7.5
 height = 26.0
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_owghj"]
+a = Vector2(22, 0)
+b = Vector2(0, 0)
+
 [node name="Goofy" type="CharacterBody2D"]
+z_index = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_s63fl")
+metadata/_edit_vertical_guides_ = [-108.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_40tgh")
@@ -1343,6 +1349,7 @@ parameters/walk_hands_up/blend_position = Vector2(0, 0)
 [node name="ActionableMarker" type="Marker2D" parent="."]
 
 [node name="ActionableArea2D" type="Area2D" parent="ActionableMarker"]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -1351,7 +1358,13 @@ position = Vector2(0, 21)
 shape = SubResource("CircleShape2D_1338f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, 27)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ro1xt")
 debug_color = Color(0.929781, 0.252364, 0.21137, 0.42)
+
+[node name="CollisionShape2DDetectObject" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 25.5)
+shape = SubResource("SegmentShape2D_owghj")
+debug_color = Color(0.92549, 0, 1, 1)

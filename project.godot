@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Signals="*res://Scripts/Importants/Signals.gd"
+DebugHelperController="*res://Scripts/Importants/DebugHelperController.gd"
 
 [dialogue_manager]
 
@@ -28,7 +29,6 @@ general/balloon_path="res://Dialogos/Ballons/balloon.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 
 [editor_plugins]
 

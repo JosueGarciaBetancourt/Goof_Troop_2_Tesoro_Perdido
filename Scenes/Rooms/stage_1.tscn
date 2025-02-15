@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c8l3fwfb4yrxv"]
+[gd_scene load_steps=41 format=3 uid="uid://c8l3fwfb4yrxv"]
 
 [ext_resource type="PackedScene" uid="uid://bhvpx244t3dfo" path="res://Scenes/TileMap/tmStage1.tscn" id="1_sct7h"]
 [ext_resource type="PackedScene" uid="uid://bimclf76scsy7" path="res://Scenes/Players/Goofy.tscn" id="1_suvoh"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://bnukt2yfcmehy" path="res://Scenes/Objects/Starblock.tscn" id="34_lmps6"]
 [ext_resource type="Texture2D" uid="uid://ccsw1ueke8xkb" path="res://assets/effects/WhiteBackground.png" id="35_dmr35"]
 [ext_resource type="Script" path="res://Scripts/Objects/StarblockController.gd" id="37_fwr8i"]
+[ext_resource type="Script" path="res://Scripts/Importants/DebugHelperController.gd" id="37_xas22"]
 
 [sub_resource type="Animation" id="Animation_e0wl5"]
 length = 0.001
@@ -130,11 +131,73 @@ texture = ExtResource("35_dmr35")
 [node name="PlayerController" type="CharacterBody2D" parent="."]
 z_index = 1
 script = ExtResource("3_370la")
+movement_speed = null
+move_left = null
+move_right = null
+move_up = null
+move_down = null
 
 [node name="Goofy" parent="PlayerController" instance=ExtResource("1_suvoh")]
-z_index = 1
 position = Vector2(800, 750)
 
 [node name="Starblock" parent="." instance=ExtResource("34_lmps6")]
 position = Vector2(888, 749)
 script = ExtResource("37_fwr8i")
+
+[node name="DebugLabels" type="Node2D" parent="."]
+position = Vector2(1168, 538)
+script = ExtResource("37_xas22")
+
+[node name="prev_direction_label" type="Label" parent="DebugLabels"]
+z_index = 100
+texture_filter = 6
+offset_left = 15.0
+offset_top = 3.0
+offset_right = 397.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "prev_direction: "
+
+[node name="movement_direction_label" type="Label" parent="DebugLabels"]
+z_index = 100
+texture_filter = 6
+offset_left = 15.0
+offset_top = 44.0
+offset_right = 398.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "movement_direction: "
+
+[node name="handsUp_label" type="Label" parent="DebugLabels"]
+z_index = 100
+texture_filter = 6
+offset_left = 17.0
+offset_top = 90.0
+offset_right = 396.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "handsUp:"
+
+[node name="kicking_label" type="Label" parent="DebugLabels"]
+z_index = 100
+texture_filter = 6
+offset_left = 17.0
+offset_top = 132.0
+offset_right = 392.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "kicking:  
+"
+
+[node name="ColorRect" type="ColorRect" parent="DebugLabels"]
+offset_right = 432.0
+offset_bottom = 183.0
+color = Color(0, 0, 0, 0.192157)
