@@ -18,7 +18,7 @@ func _process(delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34h62"]
-size = Vector2(74, 76)
+size = Vector2(73, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jykqy"]
 size = Vector2(69, 65)
@@ -32,9 +32,9 @@ scale = Vector2(1.046, 1)
 texture = ExtResource("1_ciud1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(35, 33)
+position = Vector2(34.5, 32.5)
 shape = SubResource("RectangleShape2D_34h62")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
+debug_color = Color(0.160784, 0.627451, 0.411765, 0.419608)
 
 [node name="ActionAreaStarblock" type="Area2D" parent="."]
 script = ExtResource("2_7kkp0")
