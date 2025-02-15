@@ -85,7 +85,7 @@ script = ExtResource("1_2s6tp")
 [node name="tmShip" parent="." instance=ExtResource("2_pbsgv")]
 
 [node name="RocaGuia" parent="." instance=ExtResource("2_24rgm")]
-position = Vector2(662, 455)
+position = Vector2(1095, 683)
 
 [node name="Efectos" type="Node2D" parent="."]
 z_index = 100
