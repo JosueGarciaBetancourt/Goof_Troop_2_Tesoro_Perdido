@@ -128,9 +128,11 @@ offset_bottom = 40.0
 texture = ExtResource("35_dmr35")
 
 [node name="PlayerController" type="CharacterBody2D" parent="."]
+z_index = 1
 script = ExtResource("3_370la")
 
 [node name="Goofy" parent="PlayerController" instance=ExtResource("1_suvoh")]
+z_index = 1
 position = Vector2(800, 750)
 
 [node name="Starblock" parent="." instance=ExtResource("34_lmps6")]
