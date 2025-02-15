@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://cir0ysfmpfsv0" path="res://assets/effects/clouds/NubesTormentaDer.png" id="33_ux1mv"]
 [ext_resource type="PackedScene" uid="uid://bnukt2yfcmehy" path="res://Scenes/Objects/Starblock.tscn" id="34_lmps6"]
 [ext_resource type="Texture2D" uid="uid://ccsw1ueke8xkb" path="res://assets/effects/WhiteBackground.png" id="35_dmr35"]
-[ext_resource type="Script" path="res://Scenes/Objects/Starblock.gd" id="37_fwr8i"]
+[ext_resource type="Script" path="res://Scripts/Objects/StarblockController.gd" id="37_fwr8i"]
 
 [sub_resource type="Animation" id="Animation_e0wl5"]
 length = 0.001
