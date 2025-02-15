@@ -65,7 +65,7 @@ func animate_movement():
 			collisionShape2DDetectObject.rotation = prev_direction.angle()
 
 func _unhandled_input(event: InputEvent):
-	if event.is_action_pressed("ui_accept") && nearestActionable != null:
+	if event.is_action_pressed("ui_kicking") && nearestActionable != null:
 		if is_instance_valid(nearestActionable):
 			nearestActionable.emit_signal("actionated")
 
