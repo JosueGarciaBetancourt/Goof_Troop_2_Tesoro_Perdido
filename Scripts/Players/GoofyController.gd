@@ -76,7 +76,7 @@ func _unhandled_input(event: InputEvent):
 		
 		if nearestObj:
 			# Emitir la señal mientras el jugador esté cerca
-			nearestObj.emit_signal("kicked")
+			nearestObj.emit_signal("kicked", self)
 
 			if (change_direction_to_vertical):
 				animationTree["parameters/kicking/blend_position"] = Vector2(movement_direction.x, 0)
@@ -150,4 +150,3 @@ func check_nearest_object():
 		DebugHelperController.debugInfoMessageLabel("No hay objetos cercanos")
 
 	return null  # Si no hay objetos, devuelve null
-

@@ -1302,7 +1302,7 @@ radius = 7.5
 height = 26.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_owghj"]
-a = Vector2(22, 0)
+a = Vector2(19, 0)
 b = Vector2(0, 0)
 
 [node name="Goofy" type="CharacterBody2D"]
@@ -1322,6 +1322,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n1k1e")
+}
 tree_root = SubResource("AnimationNodeStateMachine_v7vb5")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/kicking = false

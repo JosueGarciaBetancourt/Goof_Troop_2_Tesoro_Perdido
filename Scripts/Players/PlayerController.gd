@@ -88,4 +88,5 @@ func detect_change_direction():
 	if movement_direction == VECTOR_DIRECTIONS["RIGHT"] or movement_direction == VECTOR_DIRECTIONS["LEFT"] :
 		change_direction_to_horizontal = false
 
-	
+func get_facing_direction() -> Vector2:
+	return prev_direction.normalized()	

@@ -2,4 +2,4 @@ extends Area2D
 
 class_name ActionAreaObjects
 
-signal kicked()
+signal kicked(characWhoKicked: Node)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://c8l3fwfb4yrxv"]
 
-[ext_resource type="Script" path="res://Scripts/Importants/Stage_1_Controller.gd" id="1_2s6tp"]
+[ext_resource type="Script" path="res://Scripts/Stages/Stage1_Controller.gd" id="1_ckbdl"]
 [ext_resource type="PackedScene" uid="uid://bhvpx244t3dfo" path="res://Scenes/TileMap/tmStage1.tscn" id="1_sct7h"]
 [ext_resource type="PackedScene" uid="uid://bimclf76scsy7" path="res://Scenes/Players/Goofy.tscn" id="1_suvoh"]
 [ext_resource type="PackedScene" uid="uid://2ktdmptnvcxt" path="res://Scenes/Players/Taka.tscn" id="2_24rgm"]
@@ -78,12 +78,11 @@ _data = {
 }
 
 [node name="Stage_1" type="Node2D"]
-script = ExtResource("1_2s6tp")
+script = ExtResource("1_ckbdl")
 
 [node name="TileMap" parent="." instance=ExtResource("1_sct7h")]
 
 [node name="tmShip" parent="." instance=ExtResource("2_pbsgv")]
-visible = false
 
 [node name="RocaGuia" parent="." instance=ExtResource("2_24rgm")]
 position = Vector2(1095, 683)
@@ -142,14 +141,16 @@ script = ExtResource("3_370la")
 position = Vector2(800, 750)
 
 [node name="Starblock" parent="." instance=ExtResource("34_lmps6")]
-position = Vector2(888, 749)
+position = Vector2(908, 776)
 script = ExtResource("37_fwr8i")
 
 [node name="DebugLabels" type="Node2D" parent="."]
-position = Vector2(1140, 479)
+z_index = 99
+position = Vector2(1162, 325)
 script = ExtResource("37_xas22")
 
 [node name="ColorRect" type="ColorRect" parent="DebugLabels"]
+z_index = 99
 offset_left = 12.0
 offset_top = -11.0
 offset_right = 472.0
