@@ -83,6 +83,7 @@ script = ExtResource("1_2s6tp")
 [node name="TileMap" parent="." instance=ExtResource("1_sct7h")]
 
 [node name="tmShip" parent="." instance=ExtResource("2_pbsgv")]
+visible = false
 
 [node name="RocaGuia" parent="." instance=ExtResource("2_24rgm")]
 position = Vector2(1095, 683)
@@ -118,6 +119,7 @@ position = Vector2(960, 540)
 texture = ExtResource("8_jo411")
 
 [node name="SoundEffects" type="AudioStreamPlayer2D" parent="Efectos"]
+position = Vector2(5, 6)
 
 [node name="StormAudio" type="AudioStreamPlayer2D" parent="Efectos/SoundEffects"]
 
