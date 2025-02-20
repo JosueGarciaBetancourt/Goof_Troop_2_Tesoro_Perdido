@@ -12,9 +12,10 @@ var kicking: bool = false
 var change_direction_to_vertical: bool = false
 var change_direction_to_horizontal: bool = false
 
-var movement_direction: Vector2 = Vector2.ZERO
-var movement_direction_normalized: Vector2 = Vector2.ZERO
+var movement_direction: Vector2 = Vector2.ZERO # Vector entero
+var movement_direction_normalized: Vector2 = Vector2.ZERO 
 var prev_direction: Vector2 = Vector2.ZERO
+var prev_orthogonal_direction: Vector2 = Vector2.ZERO
 var canMove: bool = true
 
 const VECTOR_DIRECTIONS = {
@@ -36,6 +37,7 @@ func _physics_process(_delta: float) -> void:
 
 func debugLabels():
 	DebugHelperController.debugPrevDirectionLabel(prev_direction)
+	DebugHelperController.debugPrevOrthogonalDirectionLabel(prev_orthogonal_direction)
 	DebugHelperController.debugMovementDirectionLabel(movement_direction)
 	DebugHelperController.debugHandsUpLabel(handsUp)
 	DebugHelperController.debugKickingLabel(kicking)
@@ -89,4 +91,4 @@ func detect_change_direction():
 		change_direction_to_horizontal = false
 
 func get_facing_direction() -> Vector2:
-	return prev_direction.normalized()	
+	return prev_orthogonal_direction	

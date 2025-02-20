@@ -153,8 +153,8 @@ script = ExtResource("37_xas22")
 z_index = 99
 offset_left = 12.0
 offset_top = -11.0
-offset_right = 472.0
-offset_bottom = 324.0
+offset_right = 510.0
+offset_bottom = 471.0
 color = Color(0, 0, 0, 0.352941)
 
 [node name="titleDebug_label" type="Label" parent="DebugLabels"]
@@ -181,13 +181,25 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "prev_direction: "
 
+[node name="prev_orthogonal_direction_label" type="Label" parent="DebugLabels"]
+z_index = 100
+texture_filter = 6
+offset_left = 31.0
+offset_top = 97.0
+offset_right = 413.0
+offset_bottom = 134.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "prev_orthogonal_direction: "
+
 [node name="movement_direction_label" type="Label" parent="DebugLabels"]
 z_index = 100
 texture_filter = 6
-offset_left = 25.0
-offset_top = 84.0
-offset_right = 408.0
-offset_bottom = 129.0
+offset_left = 29.0
+offset_top = 140.0
+offset_right = 412.0
+offset_bottom = 185.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
@@ -196,35 +208,34 @@ text = "movement_direction: "
 [node name="handsUp_label" type="Label" parent="DebugLabels"]
 z_index = 100
 texture_filter = 6
-offset_left = 26.0
-offset_top = 122.0
-offset_right = 405.0
-offset_bottom = 162.0
+offset_left = 30.0
+offset_top = 192.0
+offset_right = 409.0
+offset_bottom = 232.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
-text = "handsUp:"
+text = "handsUp: "
 
 [node name="kicking_label" type="Label" parent="DebugLabels"]
 z_index = 100
 texture_filter = 6
-offset_left = 27.0
-offset_top = 159.0
-offset_right = 402.0
-offset_bottom = 196.0
+offset_left = 32.0
+offset_top = 247.0
+offset_right = 407.0
+offset_bottom = 284.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
-text = "kicking:  
-"
+text = "kicking:  "
 
 [node name="infoMessage_label" type="Label" parent="DebugLabels"]
 z_index = 100
 texture_filter = 6
-offset_left = 29.0
-offset_top = 205.0
-offset_right = 460.0
-offset_bottom = 318.0
+offset_left = 31.0
+offset_top = 288.0
+offset_right = 462.0
+offset_bottom = 449.0
 theme_override_colors/font_color = Color(0.635294, 0.882353, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21

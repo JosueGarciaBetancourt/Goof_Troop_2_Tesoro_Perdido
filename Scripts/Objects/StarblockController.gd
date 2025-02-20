@@ -21,10 +21,10 @@ func detectDirectionToMove():
 		return
 	
 	# Obtener la dirección normalizada del jugador
-	var direction = characterWhoKicked.velocity.normalized()
+	var direction = Vector2.ZERO
 
 	# Si el jugador no se movía al patear, usa la dirección previa
-	if direction == Vector2.ZERO and characterWhoKicked.has_method("get_facing_direction"):
+	if characterWhoKicked.has_method("get_facing_direction"):
 		direction = characterWhoKicked.get_facing_direction()
 	
 	# Aplicar la dirección al movimiento del bloque

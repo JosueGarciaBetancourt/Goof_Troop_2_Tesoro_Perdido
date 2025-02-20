@@ -40,10 +40,9 @@ func animate_movement():
 	else:
 		detect_change_direction()
 
-		# Guardar la dirección actual como anterior para la próxima verificación
+		# Guardar la dirección actual como anterior para la próxima verificación solo cuando se mueve
 		prev_direction = movement_direction
 		
-
 		animationTree["parameters/conditions/stopping"] = false
 		animationTree["parameters/conditions/stoppingHandsUp"] = false
 		animationTree["parameters/conditions/walking"] = !handsUp
@@ -57,12 +56,15 @@ func animate_movement():
 			animationTree["parameters/walk/blend_position"] = Vector2(movement_direction.x, 0)
 			animationTree["parameters/walk_hands_up/blend_position"] = Vector2(movement_direction.x, 0)
 			collisionShape2DDetectObject.rotation = Vector2(movement_direction.x, 0).angle()
+			prev_orthogonal_direction = Vector2(movement_direction.x, 0)
 		elif (change_direction_to_horizontal):
 			collisionShape2DDetectObject.rotation = Vector2(0, movement_direction.y).angle()
+			prev_orthogonal_direction = Vector2(0, movement_direction.y)
 		else: 
 			animationTree["parameters/walk/blend_position"] = movement_direction
 			animationTree["parameters/walk_hands_up/blend_position"] = movement_direction
 			collisionShape2DDetectObject.rotation = prev_direction.angle()
+			prev_orthogonal_direction = prev_direction
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("ui_kicking") && nearestActionable != null:
