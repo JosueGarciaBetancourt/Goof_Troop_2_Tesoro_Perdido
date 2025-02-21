@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://2sfrfnvq66ki"]
+
+[ext_resource type="Texture2D" uid="uid://c28wqodxtvniy" path="res://assets/objects/Reja.png" id="1_bcmpw"]
+
+[node name="Reja" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bcmpw")
