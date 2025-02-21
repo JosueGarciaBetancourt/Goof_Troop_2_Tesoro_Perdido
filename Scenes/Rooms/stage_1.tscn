@@ -80,6 +80,7 @@ _data = {
 script = ExtResource("1_ckbdl")
 
 [node name="TileMap" parent="." instance=ExtResource("1_sct7h")]
+layer_3/modulate = Color(1, 1, 1, 0.415686)
 
 [node name="RocaGuia" parent="." instance=ExtResource("2_24rgm")]
 position = Vector2(1027, 578)

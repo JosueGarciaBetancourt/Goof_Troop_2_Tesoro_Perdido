@@ -53,13 +53,13 @@ func animate_movement():
 		animationTree["parameters/stop_hands_up/blend_position"] = movement_direction
 		
 		if (change_direction_to_vertical):
-			animationTree["parameters/walk/blend_position"] = Vector2(movement_direction.x, 0)
-			animationTree["parameters/walk_hands_up/blend_position"] = Vector2(movement_direction.x, 0)
-			collisionShape2DDetectObject.rotation = Vector2(movement_direction.x, 0).angle()
 			prev_orthogonal_direction = Vector2(movement_direction.x, 0)
+			animationTree["parameters/walk/blend_position"] = prev_orthogonal_direction
+			animationTree["parameters/walk_hands_up/blend_position"] = prev_orthogonal_direction
+			collisionShape2DDetectObject.rotation = prev_orthogonal_direction.angle()
 		elif (change_direction_to_horizontal):
-			collisionShape2DDetectObject.rotation = Vector2(0, movement_direction.y).angle()
 			prev_orthogonal_direction = Vector2(0, movement_direction.y)
+			collisionShape2DDetectObject.rotation = prev_orthogonal_direction.angle()
 		else: 
 			animationTree["parameters/walk/blend_position"] = movement_direction
 			animationTree["parameters/walk_hands_up/blend_position"] = movement_direction

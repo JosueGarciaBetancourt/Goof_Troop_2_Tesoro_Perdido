@@ -2,12 +2,19 @@ extends CharacterBody2D  # Usamos CharacterBody2D en lugar de StaticBody2D
 
 @onready var actionAreaStarblock = $ActionAreaStarblock
 var move_speed_vector: Vector2  
-@export var move_speed: int = 1200
+var move_speed: int = 1200
 var moving := false 
 var characterWhoKicked: Node2D = null
 
 func _ready():
 	actionAreaStarblock.kicked.connect(kicked)
+	actionAreaStarblock.body_entered.connect(check_enter_holeStarblock)
+
+func check_enter_holeStarblock(body):
+	if body != null:
+		"""for prop in body.get_property_list():
+			print(prop.name, " = ", body.get(prop.name))"""
+		DebugHelperController.debugInfoMessageLabel("Starblock encajó en holeStarblock: " + body.name)
 
 func kicked(characWhoKicked):
 	characterWhoKicked = characWhoKicked
@@ -39,8 +46,7 @@ func _physics_process(delta):
 
 		if collision:
 			moving = false  # Detiene el movimiento al colisionar
-			DebugHelperController.debugInfoMessageLabel("Starblock colisionó con: " + str(collision.get_collider().name))
 
 	if Input.is_action_pressed("ui_auxKey"):  
-		global_position = Vector2(908, 776)
+		global_position = Vector2(467, 576)
 		moving = false
