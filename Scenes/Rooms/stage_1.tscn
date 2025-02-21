@@ -1,10 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://c8l3fwfb4yrxv"]
+[gd_scene load_steps=41 format=3 uid="uid://c8l3fwfb4yrxv"]
 
 [ext_resource type="Script" path="res://Scripts/Stages/Stage1_Controller.gd" id="1_ckbdl"]
 [ext_resource type="PackedScene" uid="uid://bhvpx244t3dfo" path="res://Scenes/TileMap/tmStage1.tscn" id="1_sct7h"]
 [ext_resource type="PackedScene" uid="uid://bimclf76scsy7" path="res://Scenes/Players/Goofy.tscn" id="1_suvoh"]
 [ext_resource type="PackedScene" uid="uid://2ktdmptnvcxt" path="res://Scenes/Players/Taka.tscn" id="2_24rgm"]
-[ext_resource type="PackedScene" uid="uid://cfbx326p25ld1" path="res://Scenes/TileMap/tmShip.tscn" id="2_pbsgv"]
 [ext_resource type="Script" path="res://Scripts/Players/PlayerController.gd" id="3_370la"]
 [ext_resource type="Script" path="res://Scripts/Effects/Storm.gd" id="6_rw67d"]
 [ext_resource type="Texture2D" uid="uid://d2tjxevxr1ggp" path="res://assets/effects/BlackBackground.png" id="7_vh7la"]
@@ -82,10 +81,8 @@ script = ExtResource("1_ckbdl")
 
 [node name="TileMap" parent="." instance=ExtResource("1_sct7h")]
 
-[node name="tmShip" parent="." instance=ExtResource("2_pbsgv")]
-
 [node name="RocaGuia" parent="." instance=ExtResource("2_24rgm")]
-position = Vector2(1095, 683)
+position = Vector2(1027, 578)
 
 [node name="Efectos" type="Node2D" parent="."]
 z_index = 100
@@ -135,13 +132,14 @@ texture = ExtResource("35_dmr35")
 
 [node name="PlayerController" type="CharacterBody2D" parent="."]
 z_index = 1
+position = Vector2(-359, 4)
 script = ExtResource("3_370la")
 
 [node name="Goofy" parent="PlayerController" instance=ExtResource("1_suvoh")]
-position = Vector2(800, 750)
+position = Vector2(580, 550)
 
 [node name="Starblock" parent="." instance=ExtResource("34_lmps6")]
-position = Vector2(908, 776)
+position = Vector2(467, 576)
 script = ExtResource("37_fwr8i")
 
 [node name="DebugLabels" type="Node2D" parent="."]
