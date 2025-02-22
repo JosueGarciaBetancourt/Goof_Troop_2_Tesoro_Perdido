@@ -8,7 +8,7 @@ extends PlayerController
 
 var nearestActionable: ActionArea
 var readyPressFBallon: ActionArea
-var nearest_object: ActionAreaObjects
+var nearest_object: ActionableObjects
 
 func _ready():
 	animationTree.active =  true
@@ -133,7 +133,7 @@ func check_nearest_object():
 	var areas: Array[Area2D] = area2DDetectObject.get_overlapping_areas()
 
 	if (areas == [] or areas == null):
-		DebugHelperController.debugInfoMessageLabel("No hay áreas cercanas")
+		DebugHelperController.debugInfoMessageLabel("No hay objetos (áreas) cercanos")
 		return null
 
 	var shortDistance: float = INF
@@ -146,9 +146,9 @@ func check_nearest_object():
 			nearest_object = area  # Guarda el objeto más cercano
 
 	if nearest_object:
-		DebugHelperController.debugInfoMessageLabel("Objeto más cercano: " + nearest_object.name)
+		DebugHelperController.debugInfoMessageLabel("Objeto (área) más cercano: " + nearest_object.name)
 		return nearest_object  # Devuelve el objeto más cercano
 	else:
-		DebugHelperController.debugInfoMessageLabel("No hay objetos cercanos")
+		DebugHelperController.debugInfoMessageLabel("No hay objetos (áreas) cercanos")
 
 	return null  # Si no hay objetos, devuelve null

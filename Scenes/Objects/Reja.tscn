@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://2sfrfnvq66ki"]
+[gd_scene load_steps=3 format=3 uid="uid://2sfrfnvq66ki"]
 
 [ext_resource type="Texture2D" uid="uid://c28wqodxtvniy" path="res://assets/objects/Reja.png" id="1_bcmpw"]
 
-[node name="Reja" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3amqy"]
+size = Vector2(257, 101)
+
+[node name="Reja" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_bcmpw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 13.5)
+shape = SubResource("RectangleShape2D_3amqy")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)

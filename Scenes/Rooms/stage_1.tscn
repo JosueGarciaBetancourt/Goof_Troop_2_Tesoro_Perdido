@@ -35,8 +35,8 @@
 [ext_resource type="Texture2D" uid="uid://cir0ysfmpfsv0" path="res://assets/effects/clouds/NubesTormentaDer.png" id="33_ux1mv"]
 [ext_resource type="PackedScene" uid="uid://bnukt2yfcmehy" path="res://Scenes/Objects/Starblock.tscn" id="34_lmps6"]
 [ext_resource type="Texture2D" uid="uid://ccsw1ueke8xkb" path="res://assets/effects/WhiteBackground.png" id="35_dmr35"]
-[ext_resource type="Script" path="res://Scripts/Objects/StarblockController.gd" id="37_fwr8i"]
 [ext_resource type="Script" path="res://Scripts/Importants/DebugHelperController.gd" id="37_xas22"]
+[ext_resource type="Script" path="res://Scripts/Objects/RejaController.gd" id="38_aya6m"]
 [ext_resource type="PackedScene" uid="uid://2sfrfnvq66ki" path="res://Scenes/Objects/Reja.tscn" id="38_hnkom"]
 
 [sub_resource type="Animation" id="Animation_e0wl5"]
@@ -139,13 +139,9 @@ script = ExtResource("3_370la")
 [node name="Goofy" parent="PlayerController" instance=ExtResource("1_suvoh")]
 position = Vector2(580, 550)
 
-[node name="Starblock" parent="." instance=ExtResource("34_lmps6")]
-position = Vector2(467, 576)
-script = ExtResource("37_fwr8i")
-
 [node name="DebugLabels" type="Node2D" parent="."]
 z_index = 99
-position = Vector2(1162, 325)
+position = Vector2(1345, 176)
 script = ExtResource("37_xas22")
 
 [node name="ColorRect" type="ColorRect" parent="DebugLabels"]
@@ -232,7 +228,7 @@ text = "kicking:  "
 z_index = 100
 texture_filter = 6
 offset_left = 31.0
-offset_top = 288.0
+offset_top = 303.0
 offset_right = 462.0
 offset_bottom = 449.0
 theme_override_colors/font_color = Color(0.635294, 0.882353, 1, 1)
@@ -240,5 +236,17 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 autowrap_mode = 3
 
+[node name="StarblockController" type="CharacterBody2D" parent="."]
+
+[node name="Starblock" parent="StarblockController" instance=ExtResource("34_lmps6")]
+position = Vector2(500, 607)
+
+[node name="Starblock2" parent="StarblockController" instance=ExtResource("34_lmps6")]
+position = Vector2(733, 294)
+
+[node name="Starblock3" parent="StarblockController" instance=ExtResource("34_lmps6")]
+position = Vector2(1639, 644)
+
 [node name="Reja" parent="." instance=ExtResource("38_hnkom")]
 position = Vector2(866, 64)
+script = ExtResource("38_aya6m")
